@@ -107,3 +107,4 @@ Sistem desain resmi Persatuan Insinyur Indonesia (PII) Cabang Pangkalpinang diba
 - **Dilarang** menumpuk kartu di dalam kartu (*nested cards*). Gunakan garis pemisah atau pergeseran tata letak.
 - **Dilarang** menggunakan teks gradien warna-warni yang mengaburkan keterbacaan.
 - **Dilarang** menggunakan teks fungsional di bawah 11px.
+

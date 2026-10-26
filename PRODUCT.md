@@ -46,3 +46,4 @@ Satu-satunya organisasi profesi keinsinyuran resmi yang diamanatkan oleh UU Repu
 - Standar WCAG 2.1 AA dan kepatuhan penuh MDN Web Docs.
 - Dukungan preferensi pengurangan gerak (`prefers-reduced-motion`).
 - Struktur semantik HTML5 dengan skip link (`#main-content`) dan ARIA labels terverifikasi.
+

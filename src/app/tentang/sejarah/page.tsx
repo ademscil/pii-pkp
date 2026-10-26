@@ -1,61 +1,83 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ArrowLeft, Clock } from "lucide-react";
 import { aboutContent } from "@/data/site-content";
 
 const { history } = aboutContent;
 
 export const metadata: Metadata = {
-  title: "Sejarah PII Pangkalpinang",
+  title: "Sejarah Perjalanan Keinsinyuran",
   description:
-    "Kilas balik perjalanan Persatuan Insinyur Indonesia Cabang Pangkalpinang sejak 1974 hingga transformasi terkini.",
+    "Kilas balik perjalanan Persatuan Insinyur Indonesia Cabang Pangkalpinang sejak 1974 hingga era hilirisasi dan transisi hijau.",
 };
 
 export default function SejarahPage() {
   return (
     <div className="space-y-16">
-      <section className="relative overflow-hidden bg-gradient-to-br from-brand-midnight via-brand-blue/60 to-brand-midnight text-white">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(57,160,245,0.35),transparent_60%)]" />
-        <div className="relative container flex flex-col gap-6 py-24">
-          <p className="text-xs font-semibold uppercase tracking-[0.4em] text-white/70">
-            Tentang Kami
-          </p>
-          <h1 className="max-w-3xl text-4xl font-semibold leading-tight sm:text-5xl">
-            Sejarah PII Cabang Pangkalpinang
-          </h1>
-          <p className="max-w-2xl text-lg text-white/80">{history.lead}</p>
+      {/* Header Section (Technical Blueprint Editorial, No AI mesh gradients) */}
+      <section className="relative bg-slate-900 py-20 text-white border-b border-slate-800">
+        <div className="pointer-events-none absolute inset-0 opacity-10 bg-[linear-gradient(to_right,#0055A4_1px,transparent_1px),linear-gradient(to_bottom,#0055A4_1px,transparent_1px)] bg-[size:48px_48px]" />
+        <div className="relative container space-y-6">
           <Link
             href="/"
-            className="inline-flex w-fit items-center rounded-full border border-white/40 px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-1 hover:bg-white/10"
+            className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-cyan-400 hover:text-white transition"
           >
-            ← Kembali ke beranda
+            <ArrowLeft className="h-4 w-4" />
+            <span>Kembali ke Beranda Utama</span>
           </Link>
+          <div className="space-y-3">
+            <h1 className="max-w-3xl text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
+              Sejarah PII Cabang Pangkalpinang
+            </h1>
+            <p className="max-w-2xl text-base text-cyan-300 font-medium">
+              Lima dekade kepemimpinan profesi keinsinyuran mengawal peradaban industri dan pembangunan kepulauan Bangka Belitung.
+            </p>
+          </div>
+          <p className="max-w-3xl text-base text-slate-300 leading-relaxed">
+            {history.lead}
+          </p>
         </div>
       </section>
 
-      <section className="container space-y-6 text-base leading-relaxed text-brand-slate">
-        {history.paragraphs.map((paragraph) => (
-          <p key={paragraph}>{paragraph}</p>
-        ))}
+      {/* Narrative Context (Clean max-w-prose for 65-75ch optimal line length) */}
+      <section className="container max-w-prose space-y-6 text-base leading-relaxed text-slate-700">
+        <div className="space-y-4">
+          {history.paragraphs.map((paragraph, idx) => (
+            <p key={`hist-p-${idx}`} className="leading-relaxed">
+              {paragraph}
+            </p>
+          ))}
+        </div>
       </section>
 
-      <section className="bg-brand-fog py-16">
+      {/* Historical Milestones */}
+      <section className="bg-slate-50 py-16 border-t border-b border-slate-200">
         <div className="container space-y-8">
-          <h2 className="text-2xl font-semibold text-brand-midnight">
-            Tonggak Perjalanan
-          </h2>
+          <div>
+            <h2 className="text-2xl font-bold text-slate-900">
+              Tonggak Sejarah Keinsinyuran Daerah
+            </h2>
+            <p className="mt-1 text-sm text-slate-600">
+              Fase evolusi peranan insinyur dari era peleburan timah primer hingga hilirisasi hijau dan teknologi modern.
+            </p>
+          </div>
+
           <div className="grid gap-6 md:grid-cols-2">
             {history.timeline.map((item) => (
               <div
                 key={item.period}
-                className="rounded-[28px] border border-brand-fog bg-white p-6 shadow-sm"
+                className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm space-y-3"
               >
-                <span className="text-xs font-semibold uppercase tracking-[0.4em] text-brand-blue/80">
-                  {item.period}
-                </span>
-                <h3 className="mt-3 text-lg font-semibold text-brand-midnight">
+                <div className="flex items-center gap-2 text-brand-navy">
+                  <Clock className="h-4 w-4 text-brand-blue" />
+                  <span className="text-xs font-bold uppercase tracking-wider text-brand-blue tabular-nums">
+                    Tahun {item.period}
+                  </span>
+                </div>
+                <h3 className="text-lg font-bold text-slate-900">
                   {item.title}
                 </h3>
-                <p className="mt-2 text-sm text-slate-700">
+                <p className="text-sm text-slate-600 leading-relaxed">
                   {item.description}
                 </p>
               </div>
