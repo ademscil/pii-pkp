@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 import { agenda } from "@/data/site-content";
 
-const categories = ["Semua", "Sidang Profesi", "Pelatihan", "Musyawarah", "Webinar"];
+const categories = ["Semua", "Webinar", "Musyawarah", "Sidang Profesi"];
 
 export function AgendaSlider() {
   const [selectedCategory, setSelectedCategory] = useState("Semua");

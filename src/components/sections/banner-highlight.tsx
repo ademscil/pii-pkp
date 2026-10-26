@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
-  Download,
+  ExternalLink,
   Lightbulb,
   Cpu,
   Anchor,
@@ -17,97 +17,102 @@ interface StrategicInitiative {
   category: string;
   title: string;
   lead: string;
-  metricLabel: string;
-  metricValue: string;
-  subMetric: string;
+  focusArea: string;
+  focusDetail: string;
+  subFocus: string;
   disciplines: string[];
   recommendations: string[];
   docUrl: string;
+  docLabel: string;
   image: string;
   icon: typeof Lightbulb;
 }
 
 const initiatives: StrategicInitiative[] = [
   {
-    id: "plts-kolong",
-    category: "Transisi Energi & Pascatambang",
-    title: "Pemanfaatan Kolong Pascatambang untuk PLTS Terapung",
+    id: "tata-ruang-drainase",
+    category: "Tata Ruang & Permukiman",
+    title: "Masterplan Drainase & Mitigasi Banjir Perkotaan",
     lead:
-      "Studi kelayakan teknis pemanfaatan ribuan hektar kolong bekas tambang timah di Bangka Belitung sebagai floating solar PV untuk menyuplai energi bersih kawasan industri.",
-    metricLabel: "Potensi Daya Terpasang",
-    metricValue: "450 MWp",
-    subMetric: "Di 87 Kolong Prioritas",
-    disciplines: ["Teknik Elektro", "Teknik Lingkungan", "Teknik Sipil Air"],
+      "Pengurus Cabang PII bersinergi mendukung Pemerintah Kota Pangkalpinang dalam penataan sistem drainase perkotaan terintegrasi dengan pendekatan zero run-off guna mereduksi risiko genangan air.",
+    focusArea: "Fokus Kerja",
+    focusDetail: "Sinergi Pemkot Pangkalpinang",
+    subFocus: "Bidang Tata Ruang & Kawasan",
+    disciplines: ["Perencanaan Wilayah & Kota (PWK)", "Teknik Pengairan & Hidrologi", "Teknik Lingkungan"],
     recommendations: [
-      "Stabilitas jangkar apung terhadap fluktuasi muka air kolong",
-      "Karakteristik korosi panel akibat keasaman air pascatambang (pH 4-5)",
-      "Interkoneksi jaringan transmisi 150 kV sistem Bangka",
+      "Penerapan metode zero run-off pada perencanaan drainase kota",
+      "Penataan daerah tangkapan air dan sempadan sungai perkotaan",
+      "Kajian teknis bersama pemangku kepentingan jasa konstruksi daerah",
     ],
-    docUrl: "/documents/surat-keterangan-organisasi-pii-pkp.pdf",
-    image: "/partners/green-corridor.jpg",
-    icon: Lightbulb,
+    docUrl: "/#berita",
+    docLabel: "Baca Warta Terkait",
+    image: "https://images.unsplash.com/photo-1541888946425-d0fbb186c5f7?auto=format&fit=crop&w=1200&q=80",
+    icon: Droplets,
   },
   {
-    id: "hilirisasi-pasir",
-    category: "Hilirisasi Mineral & REE",
-    title: "Rantai Pasok Pasir Kuarsa & Logam Tanah Jarang (Monasit)",
+    id: "konstruksi-arsitektur",
+    category: "Arsitek & Konstruksi Sipil",
+    title: "Standar Keandalan Bangunan Gedung & Keselamatan Konstruksi",
     lead:
-      "Penyusunan peta jalan keteknikan pengolahan monasit dan ilmenit sisa hasil tambang timah menjadi bahan baku magnet permanen untuk rantai pasok industri masa depan.",
-    metricLabel: "Nilai Tambah Hilirisasi",
-    metricValue: "18.4x",
-    subMetric: "Dari Komoditas Mentah ke Produk Akhir",
-    disciplines: ["Teknik Metalurgi", "Teknik Kimia", "Teknik Pertambangan"],
+      "Pengawalan standar teknis keselamatan konstruksi, pemenuhan persyaratan Persetujuan Bangunan Gedung (PBG), Sertifikat Laik Fungsi (SLF), dan penegakan kode etik keinsinyuran di wilayah Pangkalpinang.",
+    focusArea: "Pengampu Bidang",
+    focusDetail: "Arsitektur & Sipil",
+    subFocus: "Standar K3 & Keandalan Bangunan",
+    disciplines: ["Teknik Sipil Struktur", "Arsitektur", "Manajemen Konstruksi"],
     recommendations: [
-      "Standardisasi pemisahan radioaktif alami (NORM) monasit",
-      "Pembangunan smelter presisi ramah lingkungan di Sadai",
-      "Kemitraan riset bersama perguruan tinggi vokasi kepulauan",
+      "Peningkatan kepatuhan terhadap standar keselamatan dan kesehatan kerja (K3)",
+      "Pendampingan teknis penilaian keandalan bangunan gedung daerah",
+      "Pemberdayaan tenaga ahli konstruksi bersertifikasi di Pangkalpinang",
     ],
-    docUrl: "/documents/surat-keterangan-organisasi-pii-pkp.pdf",
-    image: "/partners/cirebon-power.png",
+    docUrl: "/tentang/struktur",
+    docLabel: "Lihat Susunan Pengurus",
+    image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80",
     icon: Cpu,
   },
   {
-    id: "pelabuhan-pangkalbalam",
-    category: "Infrastruktur Maritim & Logistik",
-    title: "Kajian Alur Pelayaran & Dermaga Pangkal Balam",
+    id: "sertifikasi-stri",
+    category: "Sertifikasi & Registrasi",
+    title: "Percepatan Surat Tanda Registrasi Insinyur (STRI)",
     lead:
-      "Solusi rekayasa sedimentasi alur Sungai Baturusa dan rencana relokasi dermaga peti kemas untuk menurunkan biaya logistik pulau Bangka yang selama ini terhambat pasang surut.",
-    metricLabel: "Efisiensi Biaya Logistik",
-    metricValue: "28%",
-    subMetric: "Penurunan Turnaround Time Kapal",
-    disciplines: ["Teknik Kelautan", "Teknik Sipil Transportasi", "Geodesi"],
+      "Fasilitasi para sarjana teknik dan praktisi keinsinyuran di Pangkalpinang dalam memproses Formulir Aplikasi Insinyur Profesional (FAIP) guna memperoleh izin praktik resmi STRI sesuai amanat UU No. 11/2014.",
+    focusArea: "Regulasi Yuridis",
+    focusDetail: "UU No. 11 Tahun 2014",
+    subFocus: "Mandat Registrasi Hukum",
+    disciplines: ["Seluruh Badan Kejuruan PII", "Praktisi Industri & Konsultan"],
     recommendations: [
-      "Pengerukan periodik berbasis simulasi hidrodinamika arus muara",
-      "Kajian opsi pelabuhan laut dalam di Tanjung Gunung / Sadai",
-      "Integrasi jalur darat angkutan barang lingkar perkotaan",
+      "Asistensi pengisian SIMPOK dan portofolio keinsinyuran FAIP",
+      "Sosialisasi kewajiban hukum STRI bagi seluruh penanggung jawab teknik",
+      "Koordinasi regional Korwil Sumatera III bersama Pengurus Pusat PII",
     ],
-    docUrl: "/documents/surat-keterangan-organisasi-pii-pkp.pdf",
-    image: "/partners/pelindo.png",
-    icon: Anchor,
+    docUrl: "https://www.pii.or.id/layanan/sertifikasi",
+    docLabel: "Portal Sertifikasi PII",
+    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80",
+    icon: Lightbulb,
   },
   {
-    id: "drainase-perkotaan",
-    category: "Tata Air & Ketahanan Iklim",
-    title: "Masterplan Pengendalian Banjir Kota Pangkalpinang",
+    id: "pkb-kerjasama",
+    category: "Pendidikan & Kerjasama",
+    title: "Pengembangan Keprofesian Berkelanjutan (PKB/SKPK)",
     lead:
-      "Perancangan sistem polder, kolam retensi, dan restorasi sempadan Sungai Rangkui untuk melindungi pusat niaga dan permukiman warga dari banjir rob dan hujan ekstrem.",
-    metricLabel: "Reduksi Luas Genangan",
-    metricValue: "72%",
-    subMetric: "Periode Ulang Debit 25 Tahunan",
-    disciplines: ["Teknik Pengairan", "Planologi (PWK)", "Teknik Lingkungan"],
+      "Penyelenggaraan pelatihan, webinar, dan lokakarya terakreditasi melalui Sistem Informasi Jasa Konstruksi Terintegrasi (SIKI) guna memastikan pemenuhan nilai kredit SKK dan resertifikasi insinyur.",
+    focusArea: "Akreditasi",
+    focusDetail: "SIKI LPJK Terintegrasi",
+    subFocus: "Kredit SKPK Berkelanjutan",
+    disciplines: ["Pendidikan Profesi Keinsinyuran", "Kerjasama Antar Lembaga"],
     recommendations: [
-      "Pembangunan pintu pasang-surut otomatis di muara Sungai Rangkui",
-      "Revitalisasi kolong retensi sebagai ruang terbuka hijau publik",
-      "Penetapan garis sempadan tegas bebas okupasi bangunan liar",
+      "Integrasi webinar teknis dengan perolehan kredit SKK SIKI resmi",
+      "Kemitraan strategis dengan perguruan tinggi dan dinas teknis",
+      "Pembinaan calon insinyur muda melalui Program Profesi Insinyur (PPI)",
     ],
-    docUrl: "/documents/surat-keterangan-organisasi-pii-pkp.pdf",
-    image: "/partners/jaya-konstruksi.png",
-    icon: Droplets,
+    docUrl: "/#agenda",
+    docLabel: "Lihat Agenda Resmi",
+    image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=80",
+    icon: Anchor,
   },
 ];
 
 export function BannerHighlight() {
-  const [activeId, setActiveId] = useState<string>("plts-kolong");
+  const [activeId, setActiveId] = useState<string>("tata-ruang-drainase");
   const activeInitiative = initiatives.find((i) => i.id === activeId) || initiatives[0];
   const IconComponent = activeInitiative.icon;
 
@@ -128,15 +133,16 @@ export function BannerHighlight() {
               id="inisiatif-heading"
               className="text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl"
             >
-              Blueprint Rekayasa Bangka Belitung 2045
+              Fokus Strategis & Program Kerja Cabang
             </h2>
             <p className="mt-2 text-base font-semibold text-cyan-400">
-              Kajian keteknikan strategis, hilirisasi mineral, dan transisi energi kepulauan.
+              Empat pilar keinsinyuran Pengurus Cabang PII Kota Pangkalpinang Periode 2024–2027.
             </p>
           </div>
           <p className="max-w-xl text-base leading-relaxed text-slate-300">
-            PII Cabang Pangkalpinang memimpin forum kajian independen untuk memecahkan persoalan
-            struktural daerah melalui rekayasa teknologi, hilirisasi mineral, dan ketahanan iklim.
+            Berdasarkan amanat UU No. 11 Tahun 2014 dan SK Pengurus, PII Cabang Pangkalpinang
+            mendedikasikan kepakaran teknik untuk kemitraan pembangunan kota dan pembinaan
+            profesionalisme insinyur daerah.
           </p>
         </div>
 
@@ -188,23 +194,23 @@ export function BannerHighlight() {
                 {activeInitiative.lead}
               </p>
 
-              {/* Metric Callout (Clean hairline CAD border, not a nested box) */}
+              {/* Metric / Focus Callout (Clean hairline CAD border, not a nested box) */}
               <div className="border-l-2 border-cyan-400 pl-5 py-2">
                 <span className="text-xs font-semibold uppercase tracking-wider text-slate-300">
-                  {activeInitiative.metricLabel}
+                  {activeInitiative.focusArea}
                 </span>
                 <div className="mt-1 flex items-baseline gap-3">
-                  <span className="text-3xl font-extrabold text-cyan-400 tabular-nums">
-                    {activeInitiative.metricValue}
+                  <span className="text-2xl font-extrabold text-cyan-400">
+                    {activeInitiative.focusDetail}
                   </span>
-                  <span className="text-xs text-slate-300">{activeInitiative.subMetric}</span>
+                  <span className="text-xs text-slate-300">{activeInitiative.subFocus}</span>
                 </div>
               </div>
 
               {/* Recommendations List */}
               <div className="space-y-3">
                 <h4 className="text-xs font-bold uppercase tracking-wider text-slate-300">
-                  Pokok Rekomendasi Tim Ahli PII:
+                  Pokok Arahan Kerja Cabang:
                 </h4>
                 <ul className="space-y-2">
                   {activeInitiative.recommendations.map((rec) => (
@@ -237,21 +243,19 @@ export function BannerHighlight() {
               <div className="flex flex-wrap items-center gap-4 pt-2">
                 <Link
                   href={activeInitiative.docUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 rounded-xl bg-cyan-500 px-5 py-3 text-sm font-bold text-slate-950 transition hover:bg-cyan-400"
                 >
-                  <Download className="h-4 w-4" />
-                  <span>Unduh Dokumen Kajian Publik</span>
+                  <span>{activeInitiative.docLabel}</span>
+                  <ArrowRight className="h-4 w-4" />
                 </Link>
                 <Link
-                  href="https://wa.me/6281806701775?text=Halo%20PII%20Pangkalpinang,%20saya%20tertarik%20bergabung%20dalam%20pokja%20kajian%20teknis%20daerah"
+                  href="https://wa.me/6281806701775?text=Halo%20Pengurus%20PII%20Pangkalpinang"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-sm font-semibold text-cyan-400 transition hover:text-white"
                 >
-                  <span>Gabung Pokja Kajian</span>
-                  <ArrowRight className="h-4 w-4" />
+                  <span>Kontak Sekretariat Cabang</span>
+                  <ExternalLink className="h-4 w-4" />
                 </Link>
               </div>
             </div>
@@ -267,8 +271,8 @@ export function BannerHighlight() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
               <div className="absolute bottom-4 left-4 right-4 text-xs text-slate-200">
-                <span className="font-semibold text-white">Studi Lapangan PII PKP</span> — Wilayah
-                Strategis Bangka Belitung
+                <span className="font-semibold text-white">PII Cabang Pangkalpinang</span> — Wilayah
+                Provinsi Kepulauan Bangka Belitung
               </div>
             </div>
           </div>

@@ -7,7 +7,7 @@ import { Download, Search, Shield } from "lucide-react";
 interface OfficialDocument {
   id: string;
   title: string;
-  category: "Legalitas" | "Formulir" | "Kajian Teknis";
+  category: "Legalitas" | "Formulir";
   description: string;
   filesize: string;
   updatedAt: string;
@@ -18,46 +18,46 @@ interface OfficialDocument {
 const documentList: OfficialDocument[] = [
   {
     id: "sk-organisasi",
-    title: "Surat Keterangan Organisasi PII Cabang Pangkalpinang (Kemenkumham & PII Pusat)",
+    title: "Surat Keterangan Organisasi PII Cabang Pangkalpinang",
     category: "Legalitas",
     description:
-      "Dokumen legalitas formal cabang, susunan dewan pembina, dewan pakar, dan pengurus cabang periode 2024–2027 beserta nomor registrasi kepengurusan.",
+      "Dokumen legalitas formal cabang mengenai pengesahan kepengurusan dan penetapan nama domain resmi piipkp.or.id.",
     filesize: "92 KB (PDF)",
-    updatedAt: "Oktober 2025",
+    updatedAt: "Dokumen Resmi Cabang",
     href: "/documents/surat-keterangan-organisasi-pii-pkp.pdf",
-    isOfficialVerified: true,
-  },
-  {
-    id: "panduan-faip",
-    title: "Panduan Teknis Pengisian Formulir Aplikasi Insinyur Profesional (FAIP)",
-    category: "Formulir",
-    description:
-      "Pedoman detail penghitungan skor kredit rekam jejak keinsinyuran untuk permohonan sertifikat IPP, IPM, dan IPU melalui sistem SIMPoRE.",
-    filesize: "1.2 MB (PDF)",
-    updatedAt: "Agustus 2024",
-    href: "https://simpore.pii.or.id/",
     isOfficialVerified: true,
   },
   {
     id: "uu-11-2014",
-    title: "Undang-Undang Republik Indonesia Nomor 11 Tahun 2014 tentang Keinsinyuran",
+    title: "Undang-Undang RI Nomor 11 Tahun 2014 tentang Keinsinyuran",
     category: "Legalitas",
     description:
-      "Rujukan yuridis primer mengenai definisi praktik keinsinyuran, syarat registrasi STRI, dewan insinyur, standar layanan, dan sanksi praktik tanpa izin.",
-    filesize: "480 KB (PDF)",
+      "Rujukan yuridis primer mengenai penyelenggaraan keinsinyuran, registrasi keinsinyuran, syarat STRI, dewan insinyur, dan standar layanan profesi.",
+    filesize: "Portal JDIH BPK",
     updatedAt: "Dokumen Negara",
-    href: "https://registrasi.pii.or.id/",
+    href: "https://peraturan.bpk.go.id/Details/38580/uu-no-11-tahun-2014",
     isOfficialVerified: true,
   },
   {
-    id: "kajian-plts-kolong",
-    title: "Executive Summary: Kajian Potensi PLTS Terapung Kolong Pascatambang Babel",
-    category: "Kajian Teknis",
+    id: "pp-25-2019",
+    title: "Peraturan Pemerintah RI Nomor 25 Tahun 2019",
+    category: "Legalitas",
     description:
-      "Ringkasan teknis pokja energi PII Pangkalpinang mengenai batimetri, daya dukung lingkungan, dan analisis hidrometeorologi 87 kolong timah.",
-    filesize: "2.4 MB (PDF)",
-    updatedAt: "Januari 2024",
-    href: "/documents/surat-keterangan-organisasi-pii-pkp.pdf",
+      "Peraturan pelaksanaan UU Keinsinyuran mengenai registrasi insinyur, Program Profesi Insinyur, dan Pengembangan Keprofesian Berkelanjutan (PKB).",
+    filesize: "Portal JDIH BPK",
+    updatedAt: "Dokumen Negara",
+    href: "https://peraturan.bpk.go.id/Details/107056/pp-no-25-tahun-2019",
+    isOfficialVerified: true,
+  },
+  {
+    id: "panduan-faip",
+    title: "Panduan Sertifikasi Insinyur Profesional & Formulir FAIP",
+    category: "Formulir",
+    description:
+      "Pedoman resmi tata cara pengisian Formulir Aplikasi Insinyur Profesional (FAIP) untuk penilaian Insinyur Profesional (IPP/IPM/IPU) PII Pusat.",
+    filesize: "Portal PII Pusat",
+    updatedAt: "PII Pusat",
+    href: "https://www.pii.or.id/layanan/sertifikasi",
     isOfficialVerified: true,
   },
 ];
@@ -109,7 +109,7 @@ export function DocumentsSection() {
               name="searchQuery"
               type="text"
               aria-label="Cari dokumen resmi"
-              placeholder="Cari dokumen (mis. Legalitas, FAIP, Sadai)..."
+              placeholder="Cari dokumen (mis. Legalitas, UU Keinsinyuran, FAIP)..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full rounded-lg border border-slate-200 bg-slate-50 pl-10 pr-4 py-2 text-sm text-slate-900 placeholder:text-slate-500 focus:border-brand-blue focus:bg-white focus:outline-none focus:ring-1 focus:ring-brand-blue"
@@ -117,7 +117,7 @@ export function DocumentsSection() {
           </div>
 
           <div className="flex flex-wrap items-center gap-1.5" role="group" aria-label="Filter kategori dokumen">
-            {["Semua", "Legalitas", "Formulir", "Kajian Teknis"].map((cat) => (
+            {["Semua", "Legalitas", "Formulir"].map((cat) => (
               <button
                 key={cat}
                 type="button"

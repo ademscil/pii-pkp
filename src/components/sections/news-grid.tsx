@@ -3,10 +3,10 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Calendar, Eye, Filter } from "lucide-react";
+import { ArrowRight, Calendar, Filter } from "lucide-react";
 import { news } from "@/data/site-content";
 
-const categories = ["Semua", "Kajian Strategis", "Sertifikasi", "Ekosistem Industri", "Organisasi"];
+const categories = ["Semua", "Kajian Strategis", "Organisasi"];
 
 export function NewsGrid() {
   const [selectedCategory, setSelectedCategory] = useState("Semua");
@@ -99,10 +99,9 @@ export function NewsGrid() {
                     <Calendar className="h-3.5 w-3.5 text-brand-blue" />
                     {featured.date}
                   </span>
-                  {featured.views && (
-                    <span className="flex items-center gap-1">
-                      <Eye className="h-3.5 w-3.5 text-slate-500" />
-                      <span className="tabular-nums">{featured.views}</span> pembaca
+                  {featured.author && (
+                    <span className="text-slate-500 font-medium">
+                      Oleh: {featured.author}
                     </span>
                   )}
                 </div>

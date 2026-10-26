@@ -9,36 +9,36 @@ const { history, vision, board } = aboutContent;
 
 const epochs = [
   {
-    period: "1974–1999",
-    title: "Era Perintisan Pertambangan & Peleburan",
+    period: "UU 11/2014",
+    title: "Mandat Regulasi & Payung Hukum Nasional",
     description:
-      "Tonggak awal konsolidasi para insinyur tambang, metalurgi, dan mesin di Pulau Bangka saat mengoperasikan pusat peleburan timah terbesar di Mentok dan instalasi pendukung logistik perkapalan.",
+      "Persatuan Insinyur Indonesia merupakan satu-satunya organisasi profesi keinsinyuran yang diakui undang-undang di Indonesia untuk menyelenggarakan registrasi insinyur, penerbitan STRI, dan pembinaan profesi.",
     milestones: [
-      "Pembentukan komisariat kerja insinyur pertambangan timah",
-      "Standardisasi keselamatan kerja peleburan timah Mentok",
-      "Pembangunan jaringan transmisi PLTD terisolasi pertama di Bangka",
+      "Kewajiban kepemilikan Surat Tanda Registrasi Insinyur (STRI)",
+      "Penyelenggaraan Program Profesi Insinyur (PPI) bersama perguruan tinggi",
+      "Pengawasan praktik keinsinyuran dan sertifikasi Insinyur Profesional (IPP/IPM/IPU)",
     ],
   },
   {
-    period: "2000–2019",
-    title: "Era Otonomi Daerah & Koridor Industri",
+    period: "Kode Etik",
+    title: "Prinsip Luhur Catur Karsa & Sapta Dharma",
     description:
-      "Transformasi pasca pembentukan Provinsi Kepulauan Bangka Belitung. Insinyur sipil, geodesi, dan kelautan memimpin perencanaan masterplan bandara, pelabuhan, jembatan, dan kawasan industri regional.",
+      "Setiap anggota PII terikat pada prinsip luhur etika profesi keinsinyuran Indonesia untuk menjunjung tinggi keselamatan publik, kejujuran intelektual, dan kelestarian lingkungan hidup.",
     milestones: [
-      "Masterplan pengembangan Pelabuhan Pangkal Balam & Tanjung Kalian",
-      "Perancangan Jembatan Emas (baskule bridge) ikon rekayasa Babel",
-      "Perumusan zonasi kawasan industri terpadu Sadai (KIK Sadai)",
+      "Mengutamakan keselamatan, kesehatan, dan kesejahteraan masyarakat",
+      "Bekerja sesuai kompetensi dan keahlian profesional yang terverifikasi",
+      "Menjaga integritas martabat profesi dan kelestarian lingkungan",
     ],
   },
   {
-    period: "2020–2045+",
-    title: "Era Hilirisasi Maju & Rekayasa Hijau",
+    period: "2024–2027",
+    title: "Dedikasi Pengurus Cabang Kota Pangkalpinang",
     description:
-      "Fokus pada transisi energi terbarukan, reklamasi kolong pascatambang berdaya guna, hilirisasi logam tanah jarang (REE), serta penegakan etika profesi insinyur bersertifikasi STRI.",
+      "Pengurus Cabang PII Kota Pangkalpinang masa bakti 2024–2027 dipimpin oleh Ir. Hadi Fitriyansyah, ST., M.PWK., berfokus pada kemitraan teknis pembangunan kota, mitigasi drainase, dan pelayanan anggota.",
     milestones: [
-      "Riset PLTS Terapung di kolong pascatambang timah",
-      "Peta jalan hilirisasi mineral monasit & silika bernilai tambah tinggi",
-      "Integrasi sertifikasi STRI dengan izin PBG dan tata ruang daerah",
+      "Kajian mitigasi drainase perkotaan dan integrasi metode zero run-off",
+      "Fasilitasi percepatan STRI bagi sarjana teknik dan praktisi daerah",
+      "Sinergi kelembagaan Korwil Sumatera III dan Pengurus Wilayah PII Babel",
     ],
   },
 ];
@@ -64,10 +64,10 @@ export function AboutSection() {
               id="sejarah-heading"
               className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl"
             >
-              Setengah Abad Menempa Peradaban Bangka Belitung
+              Wadah Resmi Profesi Keinsinyuran Kota Pangkalpinang
             </h2>
             <p className="text-base font-semibold text-brand-navy">
-              Jejak dedikasi keinsinyuran sejak masa perintisan tambang timah hingga hilirisasi hijau.
+              Menjunjung tinggi standar kompetensi profesi, integritas kode etik, dan kemitraan pembangunan perkotaan.
             </p>
             <p className="text-base font-medium text-slate-700 leading-relaxed">
               {history.lead}

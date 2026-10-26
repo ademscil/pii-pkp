@@ -63,38 +63,38 @@ export type PartnerItem = {
 
 export const aboutContent = {
   history: {
-    title: "Sejarah PII Cabang Pangkalpinang",
+    title: "Tentang PII Cabang Pangkalpinang",
     lead:
-      "Perjalanan cabang Pangkalpinang merefleksikan dinamika pembangunan Bangka Belitung yang bertumpu pada karya insinyur lokal.",
+      "Persatuan Insinyur Indonesia (PII) Cabang Pangkalpinang merupakan wadah resmi organisasi profesi keinsinyuran di Ibukota Provinsi Kepulauan Bangka Belitung yang berakar dari sejarah panjang keinsinyuran nasional.",
     paragraphs: [
-      "Cikal bakal PII Cabang Pangkalpinang lahir pada medio 1970-an melalui komunitas insinyur pertambangan timah yang berjejaring di Kota Pangkalpinang. Forum ini kemudian diresmikan sebagai cabang pada 1974 untuk memastikan praktik keinsinyuran di kepulauan berjalan etis dan profesional.",
-      "Memasuki dekade 2000-an, cabang memperluas mandat ke sektor infrastruktur perkotaan, air bersih, dan ketahanan pesisir. Program rekognisi pembelajaran lampau, pendampingan sertifikasi, serta advokasi proyek publik menjadi fondasi pelayanan anggota.",
-      "Restrukturisasi tahun 2024 menghadirkan kepengurusan baru dengan fokus pada hilirisasi timah berkelanjutan, smart port Pangkal Balam, dan penyiapan talenta teknik muda di era transisi energi.",
+      "Persatuan Insinyur Indonesia (PII) didirikan secara nasional pada tanggal 23 Mei 1952 di Bandung oleh para tokoh perintis keinsinyuran Indonesia, Ir. Djuanda Kartawidjaja dan Dr. Ir. Roosseno, guna menghimpun potensi dan karya keteknikan dalam membangun kedaulatan bangsa.",
+      "Berdasarkan Undang-Undang Nomor 11 Tahun 2014 tentang Keinsinyuran dan Peraturan Pemerintah Nomor 25 Tahun 2019, PII mengemban mandat pembinaan profesi keinsinyuran, registrasi keinsinyuran melalui Surat Tanda Registrasi Insinyur (STRI), Pengembangan Keprofesian Berkelanjutan (PKB), serta penegakan kode etik Catur Karsa dan Sapta Dharma Insinyur Indonesia.",
+      "Di Kota Pangkalpinang, roda organisasi saat ini dijalankan oleh Pengurus Cabang masa bakti 2024–2027 di bawah kepemimpinan Ketua Ir. Hadi Fitriyansyah, ST., M.PWK. bersama segenap jajaran pengurus, bersinergi dengan pemerintah daerah dan akademisi dalam mengawal perencanaan infrastruktur perkotaan, mitigasi drainase, serta pembinaan kompetensi insinyur daerah.",
     ],
     timeline: [
       {
-        period: "1974",
-        title: "Peresmian Cabang",
+        period: "1952",
+        title: "Kelahiran PII Nasional",
         description:
-          "Komunitas insinyur Pangkalpinang dikukuhkan sebagai cabang resmi PII untuk mengawal proyek vital kepulauan dan memastikan penerapan kode etik.",
+          "Pendirian Persatuan Insinyur Indonesia pada 23 Mei 1952 di Bandung oleh Ir. Djuanda Kartawidjaja dan Dr. Ir. Roosseno sebagai wadah pemersatu insinyur seluruh Indonesia.",
       },
       {
-        period: "1995",
-        title: "Ekspansi Program Keanggotaan",
+        period: "2014",
+        title: "Pengesahan UU Keinsinyuran",
         description:
-          "Program peningkatan kompetensi dan sidang pendaftaran anggota baru mulai rutin digelar bersama perguruan tinggi dan BUMN tambang.",
+          "Diterbitkannya UU No. 11 Tahun 2014 tentang Keinsinyuran yang menetapkan mandat pembinaan profesi, registrasi STRI, dan standar kompetensi insinyur di Indonesia.",
       },
       {
-        period: "2010",
-        title: "Modernisasi Infrastruktur Kota",
+        period: "2019",
+        title: "Peraturan Pemerintah Pelaksanaan",
         description:
-          "Cabang memimpin kajian teknis sistem drainase kota, pelabuhan Pangkal Balam, serta penyediaan air baku lintas pulau.",
+          "Pengundangan PP No. 25 Tahun 2019 tentang Peraturan Pelaksanaan UU Keinsinyuran yang mengatur mekanisme sertifikasi, majelis uji kompetensi, dan Pengembangan Keprofesian Berkelanjutan (PKB).",
       },
       {
-        period: "2024",
-        title: "Restrukturisasi & Agenda Hijau",
+        period: "2024–2027",
+        title: "Kepengurusan PII Pangkalpinang",
         description:
-          "Struktur organisasi diperbarui, roadmap hilirisasi timah rendah emisi disusun, dan laboratorium inovasi smart port diluncurkan.",
+          "Pengukuhan Pengurus Cabang PII Kota Pangkalpinang periode 2024–2027 di bawah kepemimpinan Ir. Hadi Fitriyansyah, ST., M.PWK., mengawal sinergi keteknikan dan tata ruang kota.",
       },
     ],
   },
@@ -203,12 +203,8 @@ export const navItems: NavItem[] = [
     ],
   },
   {
-    label: "Kabar",
-    href: "/#kabar",
-    children: [
-      { label: "Berita", href: "/#berita" },
-      { label: "Sorotan Insinyur", href: "/#dari-insinyur" },
-    ],
+    label: "Warta",
+    href: "/#berita",
   },
   { label: "Agenda", href: "/#agenda" },
   { label: "Layanan", href: "/#layanan" },
@@ -217,53 +213,43 @@ export const navItems: NavItem[] = [
 
 export const heroSlides: HeroSlide[] = [
   {
-    id: "pemkot-pkp",
+    id: "kelembagaan-cabang",
     title:
-      "Kolaborasi PII Pangkalpinang & Pemkot Percepat Modernisasi Infrastruktur Pesisir",
+      "Persatuan Insinyur Indonesia Cabang Pangkalpinang Periode 2024–2027",
     summary: [
-      "PII Cabang Pangkalpinang menggandeng Pemerintah Kota untuk merampungkan masterplan tanggul laut terpadu yang melindungi permukiman pesisir dan pelabuhan perikanan. Tim lintas disiplin memimpin audit struktur serta penerapan sensor IoT arus laut.",
-      "Program ini memprioritaskan keterlibatan insinyur muda lokal agar transfer pengetahuan terus hidup di Bangka Belitung.",
+      "Wadah resmi organisasi profesi keinsinyuran bagi para insinyur dan praktisi teknik di Kota Pangkalpinang di bawah naungan Pengurus Wilayah PII Provinsi Kepulauan Bangka Belitung.",
+      "Mengemban mandat UU No. 11 Tahun 2014 untuk menegakkan standar kompetensi profesi dan menjunjung tinggi kode etik Catur Karsa dan Sapta Dharma Insinyur Indonesia.",
     ],
     image:
-      "https://images.unsplash.com/photo-1470246973918-29a93221c455?auto=format&fit=crop&w=1400&q=80",
+      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1400&q=80",
+    link: "/tentang/struktur",
+    tag: "Kelembagaan Cabang",
+  },
+  {
+    id: "drainase-perkotaan",
+    title:
+      "Dukungan Teknis Masterplan Drainase & Mitigasi Banjir Kota Pangkalpinang",
+    summary: [
+      "Pengurus Cabang PII bersinergi mendukung Pemerintah Kota Pangkalpinang dalam telaah infrastruktur drainase perkotaan berkelanjutan dan integrasi metode zero run-off.",
+      "Menghadirkan sumbangsih kepakaran teknik sipil, tata ruang perkotaan, dan hidrologi untuk memperkuat ketahanan kawasan perkotaan terhadap risiko genangan air.",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1541888946425-d0fbb186c5f7?auto=format&fit=crop&w=1400&q=80",
     link: "/#berita",
-    tag: "Infrastruktur Kota",
+    tag: "Kajian Infrastruktur",
   },
   {
-    id: "profesi-insinyur",
-    title: "Batch Ke-3 Program Profesi Insinyur Resmi Dibuka di Pangkalpinang",
+    id: "sertifikasi-stri",
+    title:
+      "Fasilitasi Sertifikasi Insinyur Profesional & Percepatan Registrasi STRI",
     summary: [
-      "PII Pangkalpinang bekerja sama dengan Universitas Bangka Belitung menghadirkan jalur Rekognisi Pembelajaran Lampau (RPL) dan jalur reguler untuk insinyur industri timah, konstruksi, dan energi terbarukan.",
-      "Peserta mendapat pembimbing IPU nasional dan coaching klinik kesiapan sertifikasi SKIP.",
+      "Mendorong praktisi keteknikan di Pangkalpinang memenuhi legalitas berpraktik keinsinyuran melalui Program Profesi Insinyur (PPI) dan penilaian Insinyur Profesional (IPP/IPM/IPU).",
+      "Memfasilitasi pemenuhan Satuan Kredit Pengembangan Keprofesian Berkelanjutan (SKPK) yang terintegrasi dengan Sistem Informasi Jasa Konstruksi (SIKI).",
     ],
     image:
-      "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1400&q=80",
+      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1400&q=80",
     link: "/#layanan",
-    tag: "Pengembangan Kompetensi",
-  },
-  {
-    id: "industri-timah",
-    title: "Insinyur Pangkalpinang Kawal Transformasi Hilirisasi Industri Timah",
-    summary: [
-      "Forum Teknik PII Pangkalpinang mendorong penerapan standar keselamatan kerja baru di pabrik peleburan dan fasilitas hilirisasi logam ringan.",
-      "Rangkaian audit teknis memastikan inovasi berlangsung seraya meminimalkan jejak karbon operasi.",
-    ],
-    image:
-      "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1400&q=80",
-    link: "/#kabar",
-    tag: "Industri Strategis",
-  },
-  {
-    id: "smart-port",
-    title: "Roadmap Pelabuhan Pintar Pangkal Balam: Integrasi Digital Supply Chain",
-    summary: [
-      "PII bersama operator pelabuhan merilis roadmap otomatisasi dermaga dan monitoring struktur dermaga curah cair.",
-      "Pilot project memanfaatkan digital twin dan dashboard energi untuk memotong antrean bongkar muat hingga 32%.",
-    ],
-    image:
-      "https://images.unsplash.com/photo-1501426026826-31c667bdf23d?auto=format&fit=crop&w=1400&q=80",
-    link: "/#agenda",
-    tag: "Pelabuhan Pintar",
+    tag: "Sertifikasi Profesi",
   },
 ];
 
@@ -319,25 +305,24 @@ export const services: ServiceItem[] = [
 ];
 
 export const bannerHighlight = {
-  title: "Gerakan Pangkalpinang Net-Zero 2045",
+  title: "Sinergi Keinsinyuran untuk Kemajuan Kota Pangkalpinang",
   description:
-    "PII Cabang Pangkalpinang mengajak ekosistem industri dan pemerintah daerah mempercepat transisi energi pesisir, menerapkan desain hijau di kawasan industri Sadai, serta menginkubasi startup keteknikan lokal.",
-  ctaLabel: "Lihat Panduan Strategis",
-  ctaHref: "https://piipkp.or.id/netzero2045",
+    "Persatuan Insinyur Indonesia (PII) Cabang Pangkalpinang mengonsolidasikan kepakaran insinyur daerah dalam mengawal pembangunan infrastruktur perkotaan berkelanjutan, mitigasi drainase, serta pembinaan kompetensi profesi insinyur berlandaskan UU No. 11 Tahun 2014.",
+  ctaLabel: "Portal Keanggotaan Resmi PII",
+  ctaHref: "https://updmember.pii.or.id/auth/register",
   image:
-    "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1400&q=80",
+    "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1400&q=80",
 };
 
 export const news: ArticleItem[] = [
   {
     id: "news-01",
     title:
-      "Dukung Program Walikota, PII Pangkalpinang Matangkan Kajian Masterplan Drainase & Zero Run-Off Perkotaan",
+      "Dukung Program Walikota, PII Pangkalpinang Kawal Kajian Masterplan Drainase & Zero Run-Off Perkotaan",
     excerpt:
-      "Merespons tantangan genangan dan tata kelola air perkotaan, PII Cabang Pangkalpinang menyiapkan telaah teknis sistem zero run-off dan polder terintegrasi untuk memperkuat masterplan drainase Pemerintah Kota Pangkalpinang.",
+      "Menyikapi penataan ruang dan mitigasi genangan banjir di Pangkalpinang, Pengurus Cabang PII menyiapkan telaah teknis sistem zero run-off dan integrasi masterplan drainase perkotaan guna mendukung program kerja Pemerintah Kota.",
     date: "Rabu, 21 Oktober 2026",
     category: "Kajian Strategis",
-    views: 312,
     author: "Tim Advokasi Teknik PII PKP",
     image:
       "https://images.unsplash.com/photo-1541888946425-d0fbb186c5f7?auto=format&fit=crop&w=900&q=80",
@@ -346,12 +331,11 @@ export const news: ArticleItem[] = [
   {
     id: "news-02",
     title:
-      "Pengurus PII Pangkalpinang Ikuti Rakor Korwil Sumatera III Bahas Akselerasi STRI dan Sinergi Regional",
+      "Pengurus PII Pangkalpinang Hadiri Rapat Koordinasi Korwil Sumatera III",
     excerpt:
-      "Rapat koordinasi bersama PP PII dan perwakilan Sumsel, Lampung, Babel, dan Bengkulu memfokuskan akselerasi penerbitan STRI, pendampingan FAIP, dan penguatan kelembagaan cabang keinsinyuran.",
+      "Pengurus Cabang PII Pangkalpinang mengikuti agenda Rapat Koordinasi Korwil Sumatera III bersama Pengurus Pusat PII dan perwakilan wilayah Sumatera Bagian Selatan dalam rangka sinkronisasi kelembagaan dan pembinaan anggota.",
     date: "Senin, 12 Oktober 2026",
     category: "Organisasi",
-    views: 245,
     author: "Sekretariat Cabang",
     image:
       "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=900&q=80",
@@ -360,130 +344,53 @@ export const news: ArticleItem[] = [
   {
     id: "news-03",
     title:
-      "HUT PII ke-74: Insinyur Pangkalpinang Siap Kawal Re-Industrialisasi dan Hilirisasi Hijau Kepulauan",
+      "Peringatan HUT PII ke-74: 'Wujudkan Re-Industrialisasi, Insinyur Indonesia Jadi Pilar Inovasi Dunia'",
     excerpt:
-      "Mengangkat tema 'Wujudkan Re-Industrialisasi, Insinyur Indonesia Jadi Pilar Inovasi Dunia', PII Pangkalpinang menegaskan komitmen insinyur daerah mengawal transisi energi, nilai tambah mineral, dan ketahanan infrastruktur.",
+      "Menyambut momentum syukuran HUT PII ke-74 secara nasional, PII Cabang Pangkalpinang menegaskan komitmen insinyur kepulauan dalam mengawal profesionalisme, integritas kode etik, dan kemandirian teknologi daerah.",
     date: "Jum'at, 5 Juni 2026",
     category: "Organisasi",
-    views: 428,
     author: "Humas PII Pangkalpinang",
     image:
       "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=80",
     link: "https://www.instagram.com/pii_pangkalpinang/",
-  },
-  {
-    id: "news-04",
-    title:
-      "Klinik Asistensi Portofolio FAIP: Percepat Jalur Insinyur Profesional bagi Praktisi Teknik Pangkalpinang",
-    excerpt:
-      "Komite Sertifikasi Cabang membuka pendampingan berkala bagi sarjana teknik dan terapan untuk penuntasan pengisian SIMPOK PII, pemenuhan SKPK, dan perolehan gelar Insinyur Profesional Pratama/Madya/Utama.",
-    date: "Kamis, 10 September 2026",
-    category: "Sertifikasi",
-    views: 198,
-    author: "Komite Sertifikasi Cabang",
-    image:
-      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=900&q=80",
-    link: "https://www.pii.or.id/layanan/sertifikasi",
-  },
-  {
-    id: "news-05",
-    title:
-      "PII Bangka Belitung Dorong Sinergi Konsorsium Riset Terapan Bersama 12 Perguruan Tinggi Daerah",
-    excerpt:
-      "Membangun ekosistem keteknikan maritim dan teknologi pemrosesan timah, PII mengkonsolidasikan jejaring kemitraan akademik di Ruang Pasir Padi Kantor Gubernur guna mencetak talenta insinyur unggul.",
-    date: "Senin, 18 Agustus 2026",
-    category: "Ekosistem Industri",
-    views: 267,
-    author: "Bidang Riset & Kerjasama",
-    image:
-      "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=900&q=80",
-    link: "https://www.instagram.com/pii_pangkalpinang/",
-  },
-];
-
-export const engineerInsights: ArticleItem[] = [
-  {
-    id: "insight-01",
-    title:
-      "Memodernisasi Sistem Drainase Pangkalpinang dengan Sensor Curah Hujan",
-    excerpt:
-      "Kelompok kerja hidro teknik menerapkan jaringan sensor berbasis LoRa untuk mempercepat respons banjir.",
-    date: "Sabtu, 12 Juli 2025",
-    category: "Dari Insinyur",
-    image:
-      "https://images.unsplash.com/photo-1435820394963-a15297f976fd?auto=format&fit=crop&w=800&q=80",
-    link: "#",
-  },
-  {
-    id: "insight-02",
-    title:
-      "Pelajaran Dari Revitalisasi PLTD Pangkal Arang dalam Integrasi Energi Surya",
-    excerpt:
-      "Konsep hybrid diesel-solar membutuhkan kontrol beban cerdas untuk menjaga stabilitas grid pulau kecil.",
-    date: "Rabu, 4 Juni 2025",
-    category: "Dari Insinyur",
-    image:
-      "https://images.unsplash.com/photo-1509395176047-4a66953fd231?auto=format&fit=crop&w=800&q=80",
-    link: "#",
-  },
-  {
-    id: "insight-03",
-    title:
-      "Desain Laboratorium Riset Material Laut untuk Industri Kapal Babel",
-    excerpt:
-      "Tim struktur memaparkan pendekatan anti-korosi untuk kapal pendukung pertambangan dan wisata bahari.",
-    date: "Senin, 2 Juni 2025",
-    category: "Dari Insinyur",
-    image:
-      "https://images.unsplash.com/photo-1501635221054-5b30c707bd47?auto=format&fit=crop&w=800&q=80",
-    link: "#",
   },
 ];
 
 export const membershipBenefits: BenefitSlide[] = [
   {
     id: "benefit-01",
-    title: "Jejaring Insinyur Strategis",
+    title: "Legalitas Praktik Keinsinyuran & Registrasi STRI",
     description:
-      "Terhubung dengan praktisi pelabuhan, tambang timah, dan manufaktur perikanan lewat forum kurasi bulanan.",
+      "Memenuhi amanat UU No. 11/2014 dan PP No. 25/2019 untuk memperoleh hak berpraktik resmi keinsinyuran melalui Surat Tanda Registrasi Insinyur (STRI).",
+    image:
+      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=900&q=80",
+    link: "https://updmember.pii.or.id/auth/register",
+  },
+  {
+    id: "benefit-02",
+    title: "Sertifikasi Kompetensi Insinyur Profesional",
+    description:
+      "Akses jenjang sertifikasi kompetensi Insinyur Profesional Pratama (IPP), Madya (IPM), hingga Utama (IPU) yang diakui secara nasional dan regional ASEAN.",
     image:
       "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=80",
     link: "https://updmember.pii.or.id/auth/register",
   },
   {
-    id: "benefit-02",
-    title: "Advokasi Teknis Prioritas",
-    description:
-      "Keanggotaan aktif memperoleh akses hotline advokasi kontrak dan pendampingan sengketa teknis.",
-    image:
-      "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=900&q=80",
-    link: "https://updmember.pii.or.id/auth/register",
-  },
-  {
     id: "benefit-03",
-    title: "Katalis Proyek Smart City",
+    title: "Pengembangan Keprofesian Berkelanjutan (PKB/SKPK)",
     description:
-      "Berpartisipasi dalam laboratorium inovasi digital twin kota Pangkalpinang untuk transportasi dan air minum.",
+      "Pemenuhan nilai kredit Satuan Kredit Pengembangan Keprofesian melalui lokakarya, seminar keteknikan, dan webinar terakreditasi SIKI LPJK.",
     image:
-      "https://images.unsplash.com/photo-1470246973918-29a93221c455?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=900&q=80",
     link: "https://updmember.pii.or.id/auth/register",
   },
   {
     id: "benefit-04",
-    title: "Akses Program Global",
+    title: "Naungan Kode Etik Catur Karsa Sapta Dharma",
     description:
-      "Rangkaian fellowship WFEO dan ASEAN Engineers kini menempatkan kuota khusus untuk anggota cabang.",
+      "Perlindungan integritas profesi dan advokasi praktik keinsinyuran berlandaskan prinsip luhur etika profesi insinyur Indonesia.",
     image:
-      "https://images.unsplash.com/photo-1472289065668-ce650ac443d2?auto=format&fit=crop&w=900&q=80",
-    link: "https://updmember.pii.or.id/auth/register",
-  },
-  {
-    id: "benefit-05",
-    title: "Ekosistem Startup Teknik",
-    description:
-      "Startup keteknikan lokal mendapat coaching bisnis, akses laboratorium pengujian, serta investor day tahunan.",
-    image:
-      "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=80",
     link: "https://updmember.pii.or.id/auth/register",
   },
 ];
@@ -492,11 +399,11 @@ export const agenda: AgendaItem[] = [
   {
     id: "agenda-01",
     title:
-      "Webinar PKB: Infrastruktur Drainase Perkotaan Berkelanjutan & Integrasi Metode Zero Run-Off",
+      "Webinar PKB: Infrastruktur Drainase Perkotaan Berkelanjutan: Integrasi Metode Zero Run-Off Pada Masterplan Drainase Kota",
     date: "Rabu, 21 Oktober 2026 (08.30 WIB)",
     category: "Webinar",
     mode: "Online",
-    location: "Zoom Cloud Meeting & Integrasi SIKI LPJK (FTSL ITB x Jakon Jabar)",
+    location: "Zoom Cloud Meeting & Integrasi SIKI LPJK (FTSL ITB x Dinas BMPR Jabar)",
     image:
       "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=900&q=80",
     link: "https://www.instagram.com/pii_pangkalpinang/",
@@ -516,37 +423,13 @@ export const agenda: AgendaItem[] = [
   {
     id: "agenda-03",
     title:
-      "Syukuran Peringatan HUT PII ke-74: Re-Industrialisasi Insinyur Indonesia Pilar Inovasi Dunia",
+      "Syukuran Peringatan HUT PII ke-74: 'Wujudkan Re-Industrialisasi, Insinyur Indonesia Jadi Pilar Inovasi Dunia'",
     date: "Jum'at, 5 Juni 2026 (08.30 WIB)",
     category: "Sidang Profesi",
     mode: "Online",
-    location: "Zoom Meeting ID: 832 8627 4437 (Passcode: HUT.PII74)",
+    location: "Zoom Meeting ID: 832 8627 4437 (Passcode: HUT.PII74, Pengurus Pusat PII)",
     image:
       "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=900&q=80",
-    link: "https://www.instagram.com/pii_pangkalpinang/",
-  },
-  {
-    id: "agenda-04",
-    title:
-      "Klinik Bimbingan Portofolio FAIP & Sertifikasi Insinyur Profesional (IPP/IPM/IPU)",
-    date: "Sabtu, 14 November 2026 (09.00 WIB)",
-    category: "Pelatihan",
-    mode: "Hybrid",
-    location: "Sekretariat PII Cabang Pangkalpinang & Zoom Cloud Meeting",
-    image:
-      "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=900&q=80",
-    link: "https://www.pii.or.id/layanan/sertifikasi",
-  },
-  {
-    id: "agenda-05",
-    title:
-      "Focus Group Discussion: Mitigasi Genangan & Penataan Koridor Sungai Perkotaan",
-    date: "Kamis, 26 November 2026 (09.00 WIB)",
-    category: "Musyawarah",
-    mode: "Offline",
-    location: "Aula Bappeda Kota Pangkalpinang (Kolaborasi PII PKP x Pemkot)",
-    image:
-      "https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=900&q=80",
     link: "https://www.instagram.com/pii_pangkalpinang/",
   },
 ];
@@ -615,7 +498,7 @@ export const partners: PartnerItem[] = [
 ];
 
 export const footerContent = {
-  addressLabel: "Graha Rekayasa Pangkalpinang",
+  addressLabel: "Sekretariat PII Cabang Pangkalpinang",
   address:
     "Jl. Jenderal Ahmad Yani No. 88, Kel. Gajah Mada, Kec. Taman Sari, Pangkalpinang 33121",
   phone: "+62 818 0670 1775",
@@ -640,22 +523,28 @@ export const footerContent = {
 
 export const documents = [
   {
-    title: "Pedoman Tata Kelola PII Pangkalpinang 2025",
+    title: "Surat Keterangan Organisasi PII Cabang Pangkalpinang",
     description:
-      "Rujukan lengkap struktur organisasi, kode etik, dan prosedur sidang anggota cabang.",
+      "Dokumen resmi keterangan kepengurusan organisasi dan penetapan domain piipkp.or.id.",
     href: "/documents/surat-keterangan-organisasi-pii-pkp.pdf",
   },
   {
-    title: "Formulir Keanggotaan & SKK Area Babel",
+    title: "Undang-Undang RI No. 11 Tahun 2014 tentang Keinsinyuran",
     description:
-      "Dokumen pendaftaran anggota baru berikut checklist berkas Rekognisi Pembelajaran Lampau.",
-    href: "/documents/surat-keterangan-organisasi-pii-pkp.pdf",
+      "Landasan hukum pokok praktik keinsinyuran, sertifikasi profesi, dan mandat registrasi STRI di Indonesia.",
+    href: "https://peraturan.bpk.go.id/Details/38580/uu-no-11-tahun-2014",
   },
   {
-    title: "Blueprint Net-Zero Kawasan Industri Sadai",
+    title: "Peraturan Pemerintah RI No. 25 Tahun 2019",
     description:
-      "Laporan teknis versi publik terkait roadmap energi bersih hasil kajian PII Pangkalpinang.",
-    href: "/documents/surat-keterangan-organisasi-pii-pkp.pdf",
+      "Peraturan pelaksanaan UU Keinsinyuran mengenai uji kompetensi, Program Profesi Insinyur, dan PKB.",
+    href: "https://peraturan.bpk.go.id/Details/107056/pp-no-25-tahun-2019",
+  },
+  {
+    title: "Panduan Sertifikasi Insinyur Profesional & Portofolio FAIP",
+    description:
+      "Informasi resmi jalur pendaftaran Insinyur Profesional dan tata cara pengisian formulir portofolio PII Pusat.",
+    href: "https://www.pii.or.id/layanan/sertifikasi",
   },
 ];
 

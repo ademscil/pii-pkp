@@ -6,9 +6,9 @@ import { aboutContent } from "@/data/site-content";
 const { history } = aboutContent;
 
 export const metadata: Metadata = {
-  title: "Sejarah Perjalanan Keinsinyuran",
+  title: "Landasan Sejarah & Kelembagaan PII",
   description:
-    "Kilas balik perjalanan Persatuan Insinyur Indonesia Cabang Pangkalpinang sejak 1974 hingga era hilirisasi dan transisi hijau.",
+    "Sejarah Persatuan Insinyur Indonesia (PII), landasan hukum UU No. 11 Tahun 2014, dan dedikasi Pengurus Cabang Kota Pangkalpinang Periode 2024–2027.",
 };
 
 export default function SejarahPage() {
@@ -27,10 +27,10 @@ export default function SejarahPage() {
           </Link>
           <div className="space-y-3">
             <h1 className="max-w-3xl text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
-              Sejarah PII Cabang Pangkalpinang
+              Landasan Sejarah & Kelembagaan PII
             </h1>
             <p className="max-w-2xl text-base text-cyan-300 font-medium">
-              Lima dekade kepemimpinan profesi keinsinyuran mengawal peradaban industri dan pembangunan kepulauan Bangka Belitung.
+              Sejarah keinsinyuran nasional, payung hukum UU No. 11 Tahun 2014, dan dedikasi Pengurus Cabang Kota Pangkalpinang.
             </p>
           </div>
           <p className="max-w-3xl text-base text-slate-300 leading-relaxed">
@@ -55,10 +55,10 @@ export default function SejarahPage() {
         <div className="container space-y-8">
           <div>
             <h2 className="text-2xl font-bold text-slate-900">
-              Tonggak Sejarah Keinsinyuran Daerah
+              Tonggak Sejarah & Landasan Hukum Keinsinyuran
             </h2>
             <p className="mt-1 text-sm text-slate-600">
-              Fase evolusi peranan insinyur dari era peleburan timah primer hingga hilirisasi hijau dan teknologi modern.
+              Perkembangan tonggak legalitas dan kelembagaan keinsinyuran dari pendirian PII nasional hingga kepengurusan cabang saat ini.
             </p>
           </div>
 
@@ -71,7 +71,7 @@ export default function SejarahPage() {
                 <div className="flex items-center gap-2 text-brand-navy">
                   <Clock className="h-4 w-4 text-brand-blue" />
                   <span className="text-xs font-bold uppercase tracking-wider text-brand-blue tabular-nums">
-                    Tahun {item.period}
+                    Periode {item.period}
                   </span>
                 </div>
                 <h3 className="text-lg font-bold text-slate-900">
