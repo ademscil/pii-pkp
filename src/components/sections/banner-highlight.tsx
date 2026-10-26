@@ -46,7 +46,7 @@ const initiatives: StrategicInitiative[] = [
     ],
     docUrl: "/#berita",
     docLabel: "Baca Warta Terkait",
-    image: "https://images.unsplash.com/photo-1541888946425-d0fbb186c5f7?auto=format&fit=crop&w=1200&q=80",
+    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80",
     icon: Droplets,
   },
   {
