@@ -1,11 +1,18 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
-import { ShieldCheck, ArrowRight, Award, GraduationCap, HardHat, FileCheck } from "lucide-react";
+import {
+  ArrowRight,
+  ShieldCheck,
+  Award,
+  GraduationCap,
+  HardHat,
+  Briefcase,
+  FileCheck,
+} from "lucide-react";
 
-type Pathway = {
+interface Pathway {
   id: string;
   role: string;
   title: string;
@@ -13,39 +20,39 @@ type Pathway = {
   actionText: string;
   actionHref: string;
   badge: string;
-  icon: typeof GraduationCap;
+  icon: typeof HardHat;
   highlights: string[];
-};
+}
 
 const pathways: Pathway[] = [
   {
-    id: "grad",
-    role: "Fresh Graduate & Akademisi",
-    title: "Mulai Karier Profesi Insinyur",
+    id: "graduate",
+    role: "Lulusan Baru / Calon Insinyur",
+    title: "Jalur Program Profesi Insinyur (PPI)",
     subtitle:
-      "Lulusan S1 Teknik/S.Tr.T wajib menempuh Program Profesi Insinyur (PPI) atau jalur RPL sebelum terjun mandiri dalam praktik keteknikan legal.",
-    actionText: "Alur PPI & Keanggotaan PII",
-    actionHref: "#layanan",
-    badge: "Tahap Persiapan",
+      "Untuk sarjana teknik (S.T.) yang ingin mengambil gelar profesi resmi Insinyur (Ir.) melalui perkuliahan reguler atau rekognisi pembelajaran lampau (RPL).",
+    actionText: "Panduan PPI & RPL Cabang",
+    actionHref: "https://registrasi.pii.or.id/layanan/sertifikasi",
+    badge: "Tahap Awal",
     icon: GraduationCap,
-    highlights: ["Konversi SKS Rekognisi Lampau", "Penerbitan KTA Resmi PII", "Pendampingan Berkas Awal"],
+    highlights: ["Gelar Profesi Insinyur (Ir.)", "Kerja sama Perguruan Tinggi", "Bimbingan Portofolio Awal"],
   },
   {
     id: "practitioner",
-    role: "Praktisi & Engineer Lapangan",
-    title: "Sertifikasi Kompetensi IPP / IPM",
+    role: "Praktisi & Tenaga Ahli (>= 3 Thn)",
+    title: "Sertifikasi Insinyur Profesional (SIP)",
     subtitle:
-      "Validasi rekam jejak proyek dan kepemimpinan rekayasa Anda melalui Sidang Majelis Penilai untuk meraih predikat Insinyur Profesional Madya.",
-    actionText: "Simulasi Syarat IPP/IPM",
-    actionHref: "#layanan",
-    badge: "Pengembangan Karier",
-    icon: HardHat,
-    highlights: ["Standar Billing Rate LPJK", "Kredit SKPK Berkelanjutan", "Jejaring Proyek Daerah"],
+      "Raih pengakuan jenjang Insinyur Profesional Pratama (IPP) dan Madya (IPM) melalui pengisian Formulir Aplikasi Insinyur Profesional (FAIP).",
+    actionText: "Mulai Pengisian FAIP",
+    actionHref: "https://simpore.pii.or.id/",
+    badge: "Karier Profesional",
+    icon: Briefcase,
+    highlights: ["Sertifikat IPP / IPM Berstandar", "SKPK / CPD Keinsinyuran", "Verifikasi Majelis Penilai"],
   },
   {
     id: "consultant",
-    role: "Konsultan & Insinyur Senior",
-    title: "Legalitas Praktik STRI & Jenjang IPU",
+    role: "Konsultan Utama & Pimpinan Proyek",
+    title: "Insinyur Utama (IPU) & Legalitas STRI",
     subtitle:
       "Pemenuhan kewajiban Surat Tanda Registrasi Insinyur (STRI) untuk penandatanganan dokumen teknis resmi negara dan otoritas keinsinyuran tertinggi.",
     actionText: "Verifikasi Legalitas STRI",
@@ -96,7 +103,7 @@ export function HeroSlider() {
                 href="https://updmember.pii.or.id/auth/register"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 rounded-xl bg-brand-blue px-6 py-3.5 text-sm font-bold text-white shadow-lg transition hover:bg-blue-600 hover:shadow-cyan-900/30"
+                className="inline-flex items-center gap-2.5 rounded-xl bg-brand-blue px-6 py-3.5 text-sm font-bold text-white shadow-lg transition hover:bg-blue-600 hover:shadow-xl"
               >
                 <span>Daftar Anggota / Perpanjang KTA</span>
                 <ArrowRight className="h-4 w-4" />
@@ -114,12 +121,12 @@ export function HeroSlider() {
           {/* Right Column: Interactive Pathway Selector */}
           <div className="rounded-2xl border border-slate-800 bg-slate-800/60 p-6 md:p-8 backdrop-blur-md shadow-2xl">
             <div className="border-b border-slate-700/80 pb-4">
-              <span className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-400">
-                Pilih Jalur Rekayasa Anda
-              </span>
-              <h2 className="mt-1 text-lg font-bold text-white">
-                Panduan Langkah Berdasarkan Pengalaman
+              <h2 className="text-xl font-bold text-white">
+                Panduan Karier & Jalur Kompetensi Insinyur
               </h2>
+              <p className="text-xs text-slate-300 mt-1">
+                Pilih profil pengalaman Anda untuk menemukan alur sertifikasi resmi:
+              </p>
             </div>
 
             {/* Role Buttons */}
@@ -134,18 +141,18 @@ export function HeroSlider() {
                     className={`rounded-xl p-2.5 text-center transition-all ${
                       isActive
                         ? "border border-cyan-400 bg-cyan-950/80 text-cyan-300 font-bold shadow-md"
-                        : "border border-slate-700 bg-slate-900/40 text-slate-400 hover:text-white hover:border-slate-600 font-medium"
+                        : "border border-slate-700 bg-slate-900/40 text-slate-300 hover:text-white hover:border-slate-600 font-medium"
                     }`}
                   >
-                    <span className="block text-xs leading-tight">{item.role.split(" ")[0]}</span>
-                    <span className="block text-[10px] text-slate-400 mt-0.5">{item.badge}</span>
+                    <span className="block text-xs leading-tight font-semibold">{item.role.split(" ")[0]}</span>
+                    <span className="block text-xs text-slate-300 mt-0.5">{item.badge}</span>
                   </button>
                 );
               })}
             </div>
 
-            {/* Selected Pathway Card Details */}
-            <div className="mt-6 space-y-4 rounded-xl border border-slate-700/80 bg-slate-900/80 p-5">
+            {/* Selected Pathway Details (Flattened, no nested card border) */}
+            <div className="mt-6 space-y-4 border-t border-slate-700/60 pt-5">
               <div className="flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
                   <PathwayIcon className="h-5 w-5" />
@@ -156,17 +163,17 @@ export function HeroSlider() {
                 </div>
               </div>
 
-              <p className="text-xs leading-relaxed text-slate-300">
+              <p className="text-sm leading-relaxed text-slate-300">
                 {selectedPathway.subtitle}
               </p>
 
               <div className="border-t border-slate-800 pt-3">
-                <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-300">
                   Fokus Pembinaan Cabang:
                 </span>
                 <ul className="mt-2 space-y-1.5">
                   {selectedPathway.highlights.map((hl) => (
-                    <li key={hl} className="flex items-center gap-2 text-xs text-slate-300">
+                    <li key={hl} className="flex items-center gap-2 text-xs text-slate-200">
                       <span className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
                       <span>{hl}</span>
                     </li>
@@ -190,26 +197,26 @@ export function HeroSlider() {
         {/* Technical Data Blueprint Bar */}
         <div className="mt-16 grid grid-cols-2 gap-4 border-t border-slate-800 pt-8 sm:grid-cols-4">
           <div className="border-l-2 border-cyan-500 pl-4">
-            <span className="block text-2xl font-black text-white sm:text-3xl">380+</span>
-            <span className="block text-xs font-medium text-slate-400 uppercase tracking-wider mt-1">
+            <span className="block text-2xl font-black text-white sm:text-3xl tabular-nums">380+</span>
+            <span className="block text-xs font-medium text-slate-300 uppercase tracking-wider mt-1">
               Insinyur Terdaftar
             </span>
           </div>
           <div className="border-l-2 border-cyan-500 pl-4">
-            <span className="block text-2xl font-black text-white sm:text-3xl">14</span>
-            <span className="block text-xs font-medium text-slate-400 uppercase tracking-wider mt-1">
+            <span className="block text-2xl font-black text-white sm:text-3xl tabular-nums">14</span>
+            <span className="block text-xs font-medium text-slate-300 uppercase tracking-wider mt-1">
               Badan Kejuruan Aktif
             </span>
           </div>
           <div className="border-l-2 border-cyan-500 pl-4">
-            <span className="block text-2xl font-black text-white sm:text-3xl">100%</span>
-            <span className="block text-xs font-medium text-slate-400 uppercase tracking-wider mt-1">
+            <span className="block text-2xl font-black text-white sm:text-3xl tabular-nums">100%</span>
+            <span className="block text-xs font-medium text-slate-300 uppercase tracking-wider mt-1">
               Kepatuhan UU 11/2014
             </span>
           </div>
           <div className="border-l-2 border-cyan-500 pl-4">
-            <span className="block text-2xl font-black text-white sm:text-3xl">4 Sektor</span>
-            <span className="block text-xs font-medium text-slate-400 uppercase tracking-wider mt-1">
+            <span className="block text-2xl font-black text-white sm:text-3xl tabular-nums">4 Sektor</span>
+            <span className="block text-xs font-medium text-slate-300 uppercase tracking-wider mt-1">
               Kajian Strategis Daerah
             </span>
           </div>

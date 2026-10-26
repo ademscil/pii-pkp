@@ -2,49 +2,49 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Users, BookOpen, Clock, ArrowRight, Shield } from "lucide-react";
+import { ArrowRight, Clock, Users } from "lucide-react";
 import { aboutContent } from "@/data/site-content";
 
 const { history, vision, board } = aboutContent;
 
 const epochs = [
   {
-    period: "1974 - 1999",
-    title: "Pondasi Rekayasa Tambang & Pelabuhan",
+    period: "1974–1999",
+    title: "Era Perintisan Pertambangan & Peleburan",
     description:
-      "Perintisan wadah komunikasi insinyur di Pangkalpinang yang didominasi keahlian penambangan timah lepas pantai, rekayasa peleburan, dan infrastruktur pelabuhan era awal.",
+      "Tonggak awal konsolidasi para insinyur tambang, metalurgi, dan mesin di Pulau Bangka saat mengoperasikan pusat peleburan timah terbesar di Mentok dan instalasi pendukung logistik perkapalan.",
     milestones: [
-      "Pengukuhan komisariat cabang pertama di Pulau Bangka",
-      "Kajian stabilitas kapal keruk mangkok dan alur muara Baturusa",
-      "Penyusunan kode keselamatan tambang darat dan laut",
+      "Pembentukan komisariat kerja insinyur pertambangan timah",
+      "Standardisasi keselamatan kerja peleburan timah Mentok",
+      "Pembangunan jaringan transmisi PLTD terisolasi pertama di Bangka",
     ],
   },
   {
-    period: "2000 - 2023",
-    title: "Otonomi Daerah & Akselerasi Sipil",
+    period: "2000–2019",
+    title: "Era Otonomi Daerah & Koridor Industri",
     description:
-      "Transformasi peran cabang dalam mengawal pembangunan provinsi baru Kepulauan Bangka Belitung: tata ruang ibukota Pangkalpinang, jalan arteri, dan jembatan penghubung.",
+      "Transformasi pasca pembentukan Provinsi Kepulauan Bangka Belitung. Insinyur sipil, geodesi, dan kelautan memimpin perencanaan masterplan bandara, pelabuhan, jembatan, dan kawasan industri regional.",
     milestones: [
-      "Kajian teknis Jembatan Emas (Bascule Bridge) sistem hidraulik",
-      "Perumusan masterplan drainase dan kolam retensi DAS Rangkui",
-      "Kerjasama pembentukan Program Profesi Insinyur (PPI) bersama universitas",
+      "Masterplan pengembangan Pelabuhan Pangkal Balam & Tanjung Kalian",
+      "Perancangan Jembatan Emas (baskule bridge) ikon rekayasa Babel",
+      "Perumusan zonasi kawasan industri terpadu Sadai (KIK Sadai)",
     ],
   },
   {
-    period: "2024 - 2027",
-    title: "Hilirisasi Hijau & Transformasi Digital",
+    period: "2020–2045+",
+    title: "Era Hilirisasi Maju & Rekayasa Hijau",
     description:
-      "Kepengurusan periode berjalan fokus pada transisi energi bersih, PLTS terapung kolong pascatambang, hilirisasi pasir kuarsa/REE, dan integrasi STRI.",
+      "Fokus pada transisi energi terbarukan, reklamasi kolong pascatambang berdaya guna, hilirisasi logam tanah jarang (REE), serta penegakan etika profesi insinyur bersertifikasi STRI.",
     milestones: [
-      "Rilis roadmap dekarbonisasi industri Sadai",
-      "Klinik pendampingan sertifikasi mandiri di sekretariat cabang",
-      "Audit keteknikan ketahanan iklim pesisir Pangkalpinang",
+      "Riset PLTS Terapung di kolong pascatambang timah",
+      "Peta jalan hilirisasi mineral monasit & silika bernilai tambah tinggi",
+      "Integrasi sertifikasi STRI dengan izin PBG dan tata ruang daerah",
     ],
   },
 ];
 
 export function AboutSection() {
-  const [activeEpochIndex, setActiveEpochIndex] = useState(2);
+  const [activeEpochIndex, setActiveEpochIndex] = useState(0);
   const [activeBoardTab, setActiveBoardTab] = useState(0);
 
   const selectedEpoch = epochs[activeEpochIndex];
@@ -52,25 +52,24 @@ export function AboutSection() {
 
   return (
     <section
-      id="sejarah"
-      className="bg-white py-24 border-b border-slate-200"
+      id="tentang"
+      className="relative bg-white py-24 border-b border-slate-200"
       aria-labelledby="sejarah-heading"
     >
-      <div className="container space-y-16">
-        {/* Section 1: Historical Timeline with Interactive Epoch Navigator */}
-        <div className="grid gap-12 lg:grid-cols-[1.1fr_1fr] lg:items-start">
+      <div className="container space-y-20">
+        {/* Section 1: History & Epoch Timeline */}
+        <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <div className="space-y-6">
-            <div className="inline-flex items-center gap-2 rounded-md border border-brand-navy/20 bg-brand-navy/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-brand-navy">
-              <BookOpen className="h-3.5 w-3.5 text-brand-navy" />
-              Jejak Pengabdian Keinsinyuran
-            </div>
             <h2
               id="sejarah-heading"
               className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl"
             >
               Setengah Abad Menempa Peradaban Bangka Belitung
             </h2>
-            <p className="text-lg font-medium text-slate-700 leading-relaxed">
+            <p className="text-base font-semibold text-brand-navy">
+              Jejak dedikasi keinsinyuran sejak masa perintisan tambang timah hingga hilirisasi hijau.
+            </p>
+            <p className="text-base font-medium text-slate-700 leading-relaxed">
               {history.lead}
             </p>
             <div className="space-y-4 text-sm leading-relaxed text-slate-600">
@@ -89,7 +88,7 @@ export function AboutSection() {
             </div>
           </div>
 
-          {/* Interactive Epoch Timeline Widget */}
+          {/* Interactive Epoch Timeline Widget (Clean, no nested card clutter) */}
           <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 md:p-8 shadow-sm">
             <div className="flex items-center justify-between border-b border-slate-200 pb-4">
               <div className="flex items-center gap-2">
@@ -98,7 +97,7 @@ export function AboutSection() {
                   Linimasa Fase Perkembangan
                 </h3>
               </div>
-              <span className="text-xs font-mono font-semibold text-brand-blue">
+              <span className="text-xs font-semibold text-brand-blue tabular-nums">
                 Fase {activeEpochIndex + 1} dari 3
               </span>
             </div>
@@ -120,7 +119,7 @@ export function AboutSection() {
                   >
                     <span
                       className={`block text-xs font-bold ${
-                        isActive ? "text-brand-blue" : "text-slate-600"
+                        isActive ? "text-brand-blue" : "text-slate-700"
                       }`}
                     >
                       {ep.period}
@@ -130,8 +129,8 @@ export function AboutSection() {
               })}
             </div>
 
-            {/* Selected Epoch Details */}
-            <div className="mt-6 rounded-xl border border-slate-200 bg-white p-6 shadow-sm space-y-4">
+            {/* Selected Epoch Details (Flattened layout with top border) */}
+            <div className="mt-6 border-t border-slate-200 pt-5 space-y-4">
               <div>
                 <span className="text-xs font-bold uppercase tracking-wider text-brand-navy">
                   {selectedEpoch.period}
@@ -142,7 +141,7 @@ export function AboutSection() {
                 </p>
               </div>
 
-              <div className="border-t border-slate-100 pt-3">
+              <div className="border-t border-slate-200/80 pt-3">
                 <span className="text-xs font-bold uppercase tracking-wider text-slate-700">
                   Capaian Rekayasa Kunci:
                 </span>
@@ -159,18 +158,13 @@ export function AboutSection() {
           </div>
         </div>
 
-        {/* Section 2: Visi-Misi & Interactive Organization Board Explorer */}
+        {/* Section 2: Visi-Misi & Organization Board */}
         <div className="grid gap-12 lg:grid-cols-[1fr_1.3fr] border-t border-slate-200 pt-16">
-          {/* Visi Misi Card */}
-          <div className="rounded-2xl border border-slate-200 bg-brand-navy p-8 text-white shadow-md flex flex-col justify-between">
+          {/* Visi Misi Panel */}
+          <div className="rounded-2xl bg-brand-navy p-8 text-white shadow-md flex flex-col justify-between">
             <div className="space-y-6">
-              <div className="inline-flex items-center gap-2 rounded-md border border-cyan-400/30 bg-cyan-950/60 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300">
-                <Shield className="h-3.5 w-3.5 text-cyan-400" />
-                Visi & Nilai Organisasi
-              </div>
-
               <div>
-                <h3 className="text-2xl font-bold text-white">{vision.title}</h3>
+                <h3 className="text-2xl font-bold text-white">Visi & Nilai Organisasi PII</h3>
                 <p className="mt-3 text-sm leading-relaxed text-slate-200">{vision.vision}</p>
               </div>
 
@@ -181,7 +175,7 @@ export function AboutSection() {
                 <ul className="space-y-2.5">
                   {vision.missions.map((m, idx) => (
                     <li key={m} className="flex items-start gap-2.5 text-xs text-slate-300">
-                      <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-cyan-500/20 text-[10px] font-bold text-cyan-400">
+                      <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-cyan-500/20 text-xs font-bold text-cyan-400 tabular-nums">
                         {idx + 1}
                       </span>
                       <span>{m}</span>
@@ -228,7 +222,7 @@ export function AboutSection() {
                     className={`rounded-lg px-3 py-1.5 text-xs font-semibold transition ${
                       isActive
                         ? "bg-brand-navy text-white shadow-sm"
-                        : "bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-900"
+                        : "bg-slate-100 text-slate-700 hover:bg-slate-200 hover:text-slate-900"
                     }`}
                   >
                     {sec.heading}
@@ -237,18 +231,18 @@ export function AboutSection() {
               })}
             </div>
 
-            {/* Board Members Cards */}
-            <div className="mt-6 grid gap-3 sm:grid-cols-2">
+            {/* Board Members List (Editorial divided roster, zero nested cards) */}
+            <div className="mt-6 divide-y divide-slate-100 border-t border-b border-slate-100">
               {selectedBoardSection.people.map((person, idx) => (
                 <div
                   key={`${selectedBoardSection.heading}-${person.name}-${idx}`}
-                  className="rounded-xl border border-slate-100 bg-slate-50 p-4 transition hover:border-slate-200"
+                  className="flex items-center justify-between py-3 px-1 transition hover:bg-slate-50"
                 >
-                  <p className="font-bold text-sm text-slate-900">{person.name || person.role}</p>
+                  <span className="font-semibold text-sm text-slate-900">{person.name || person.role}</span>
                   {person.role && person.name && (
-                    <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-brand-blue">
+                    <span className="text-xs font-semibold uppercase tracking-wider text-brand-blue">
                       {person.role}
-                    </p>
+                    </span>
                   )}
                 </div>
               ))}

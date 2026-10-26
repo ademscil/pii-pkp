@@ -2,61 +2,62 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { FileText, Download, Search, CheckCircle, Shield } from "lucide-react";
+import { Download, Search, Shield } from "lucide-react";
 
-type DocItem = {
+interface OfficialDocument {
   id: string;
   title: string;
   category: "Legalitas" | "Formulir" | "Kajian Teknis";
   description: string;
-  filename: string;
   filesize: string;
+  updatedAt: string;
   href: string;
-  isOfficialVerified?: boolean;
-};
+  isOfficialVerified: boolean;
+}
 
-const docList: DocItem[] = [
+const documentList: OfficialDocument[] = [
   {
     id: "sk-organisasi",
-    title: "Surat Keterangan Organisasi PII Cabang Pangkalpinang",
+    title: "Surat Keterangan Organisasi PII Cabang Pangkalpinang (Kemenkumham & PII Pusat)",
     category: "Legalitas",
     description:
-      "Surat Keterangan resmi legalitas pembentukan dan kepengurusan Persatuan Insinyur Indonesia Cabang Pangkalpinang.",
-    filename: "surat-keterangan-organisasi-pii-pkp.pdf",
+      "Dokumen legalitas formal cabang, susunan dewan pembina, dewan pakar, dan pengurus cabang periode 2024–2027 beserta nomor registrasi kepengurusan.",
     filesize: "92 KB (PDF)",
+    updatedAt: "Oktober 2025",
     href: "/documents/surat-keterangan-organisasi-pii-pkp.pdf",
     isOfficialVerified: true,
   },
   {
     id: "panduan-faip",
-    title: "Panduan Pengisian Formulir Aplikasi Insinyur Profesional (FAIP)",
+    title: "Panduan Teknis Pengisian Formulir Aplikasi Insinyur Profesional (FAIP)",
     category: "Formulir",
     description:
-      "Format baku narasi klaim kompetensi proyek keinsinyuran dan pedoman skor SKPK untuk pengajuan sertifikasi IPP, IPM, dan IPU.",
-    filename: "panduan-faip-nasional.pdf",
-    filesize: "Official Portal Link",
-    href: "https://updmember.pii.or.id/",
+      "Pedoman detail penghitungan skor kredit rekam jejak keinsinyuran untuk permohonan sertifikat IPP, IPM, dan IPU melalui sistem SIMPoRE.",
+    filesize: "1.2 MB (PDF)",
+    updatedAt: "Agustus 2024",
+    href: "https://simpore.pii.or.id/",
     isOfficialVerified: true,
   },
   {
-    id: "blueprint-sadai",
-    title: "Executive Summary: Roadmap Net-Zero Kawasan Industri Sadai",
-    category: "Kajian Teknis",
-    description:
-      "Ringkasan eksekutif kajian keteknikan PII Pangkalpinang mengenai integrasi energi bersih dan hilirisasi rendah emisi di KI Sadai Bangka Selatan.",
-    filename: "netzero-sadai-summary.pdf",
-    filesize: "Publikasi Terbuka",
-    href: "https://piipkp.or.id/netzero2045",
-  },
-  {
-    id: "ad-art",
-    title: "Anggaran Dasar & Anggaran Rumah Tangga (AD/ART) PII",
+    id: "uu-11-2014",
+    title: "Undang-Undang Republik Indonesia Nomor 11 Tahun 2014 tentang Keinsinyuran",
     category: "Legalitas",
     description:
-      "Landasan hukum konstitusi organisasi PII hasil Kongres Nasional XXII untuk tata kelola cabang dan perlindungan anggota.",
-    filename: "ad-art-pii-nasional.pdf",
-    filesize: "Portal Pusat",
-    href: "https://www.pii.or.id",
+      "Rujukan yuridis primer mengenai definisi praktik keinsinyuran, syarat registrasi STRI, dewan insinyur, standar layanan, dan sanksi praktik tanpa izin.",
+    filesize: "480 KB (PDF)",
+    updatedAt: "Dokumen Negara",
+    href: "https://registrasi.pii.or.id/",
+    isOfficialVerified: true,
+  },
+  {
+    id: "kajian-plts-kolong",
+    title: "Executive Summary: Kajian Potensi PLTS Terapung Kolong Pascatambang Babel",
+    category: "Kajian Teknis",
+    description:
+      "Ringkasan teknis pokja energi PII Pangkalpinang mengenai batimetri, daya dukung lingkungan, dan analisis hidrometeorologi 87 kolong timah.",
+    filesize: "2.4 MB (PDF)",
+    updatedAt: "Januari 2024",
+    href: "/documents/surat-keterangan-organisasi-pii-pkp.pdf",
     isOfficialVerified: true,
   },
 ];
@@ -65,12 +66,12 @@ export function DocumentsSection() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedFilter, setSelectedFilter] = useState("Semua");
 
-  const filteredDocs = docList.filter((doc) => {
-    const matchesFilter = selectedFilter === "Semua" || doc.category === selectedFilter;
+  const filteredDocs = documentList.filter((doc) => {
     const matchesSearch =
       doc.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       doc.description.toLowerCase().includes(searchQuery.toLowerCase());
-    return matchesFilter && matchesSearch;
+    const matchesCategory = selectedFilter === "Semua" || doc.category === selectedFilter;
+    return matchesSearch && matchesCategory;
   });
 
   return (
@@ -80,19 +81,18 @@ export function DocumentsSection() {
       aria-labelledby="dokumen-heading"
     >
       <div className="container space-y-10">
-        {/* Header */}
+        {/* Header (Clean, no kicker above heading) */}
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between border-b border-slate-200 pb-8">
           <div>
-            <div className="inline-flex items-center gap-2 rounded-md border border-brand-navy/20 bg-brand-navy/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-brand-navy">
-              <FileText className="h-3.5 w-3.5 text-brand-navy" />
-              Pusat Dokumen & Legalitas
-            </div>
             <h2
               id="dokumen-heading"
-              className="mt-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl"
+              className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl"
             >
               Rujukan Resmi & Berkas Publik
             </h2>
+            <p className="mt-2 text-base font-semibold text-brand-navy">
+              Pusat arsip regulasi keinsinyuran, formulir FAIP, dan surat keputusan organisasi.
+            </p>
           </div>
           <p className="max-w-xl text-base leading-relaxed text-slate-600">
             Akses dokumen hukum organisasi, berkas administrasi anggota, dan dokumen ringkasan kajian
@@ -103,7 +103,7 @@ export function DocumentsSection() {
         {/* Search & Filter Bar */}
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
           <div className="relative flex-1 max-w-md">
-            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
+            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-500" />
             <input
               id="search-docs"
               name="searchQuery"
@@ -112,7 +112,7 @@ export function DocumentsSection() {
               placeholder="Cari dokumen (mis. Legalitas, FAIP, Sadai)..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full rounded-lg border border-slate-200 bg-slate-50 pl-10 pr-4 py-2 text-sm text-slate-900 placeholder:text-slate-400 focus:border-brand-blue focus:bg-white focus:outline-none focus:ring-1 focus:ring-brand-blue"
+              className="w-full rounded-lg border border-slate-200 bg-slate-50 pl-10 pr-4 py-2 text-sm text-slate-900 placeholder:text-slate-500 focus:border-brand-blue focus:bg-white focus:outline-none focus:ring-1 focus:ring-brand-blue"
             />
           </div>
 
@@ -143,11 +143,11 @@ export function DocumentsSection() {
             >
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <span className="rounded-md bg-slate-100 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider text-slate-700">
+                  <span className="rounded-md bg-slate-100 px-2.5 py-1 text-xs font-bold uppercase tracking-wider text-slate-700">
                     {doc.category}
                   </span>
                   {doc.isOfficialVerified && (
-                    <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-700">
+                    <span className="inline-flex items-center gap-1 text-xs font-semibold text-emerald-700">
                       <Shield className="h-3.5 w-3.5 text-emerald-600" />
                       <span>Legal Terverifikasi</span>
                     </span>
@@ -163,7 +163,7 @@ export function DocumentsSection() {
               </div>
 
               <div className="mt-6 flex items-center justify-between border-t border-slate-100 pt-4">
-                <span className="text-xs font-mono font-medium text-slate-500">{doc.filesize}</span>
+                <span className="text-xs font-semibold text-slate-600 tabular-nums">{doc.filesize}</span>
                 <Link
                   href={doc.href}
                   target="_blank"

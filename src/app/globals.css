@@ -51,10 +51,17 @@ body {
   h6 {
     font-weight: 600;
     color: theme("colors.brand.midnight");
+    text-wrap: balance;
   }
 
   p {
     color: theme("colors.brand.slate");
+    text-wrap: pretty;
+  }
+
+  /* Tabular numbers for clean numeric data columns */
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
   }
 }
 

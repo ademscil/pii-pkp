@@ -3,43 +3,36 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Building2, Filter } from "lucide-react";
+import { Filter } from "lucide-react";
 import { partners } from "@/data/site-content";
 
-const categories = ["Semua Mitra", "Pemerintah & BUMN", "Industri Strategis", "Perguruan Tinggi"];
+const categories = ["Semua", "BUMN & Industri", "Pemerintah & BUMD", "Perguruan Tinggi", "Asosiasi Rekanan"];
+
+const categoryMap: Record<string, string> = {
+  "PT Timah Tbk": "BUMN & Industri",
+  "PT Pindad": "BUMN & Industri",
+  "PT Pelindo (Persero)": "BUMN & Industri",
+  "PT Tripatra": "BUMN & Industri",
+  "Cirebon Power": "BUMN & Industri",
+  "PT DQC": "BUMN & Industri",
+  "PT Green Corridor": "BUMN & Industri",
+  "PT Nginovasi": "BUMN & Industri",
+  "PT Jaya Konstruksi": "BUMN & Industri",
+  "Universitas Bangka Belitung": "Perguruan Tinggi",
+  "Politeknik Manufaktur Negeri Bangka Belitung": "Perguruan Tinggi",
+  "KTA PII": "Asosiasi Rekanan",
+};
 
 export function PartnersGrid() {
-  const [selectedCat, setSelectedCat] = useState("Semua Mitra");
+  const [selectedCat, setSelectedCat] = useState("Semua");
 
-  const filteredPartners = partners.filter((p) => {
-    if (selectedCat === "Semua Mitra") return true;
-    if (selectedCat === "Pemerintah & BUMN") {
-      return (
-        p.name.includes("Timah") ||
-        p.name.includes("Pelindo") ||
-        p.name.includes("Pindad") ||
-        p.name.includes("KTA")
-      );
-    }
-    if (selectedCat === "Industri Strategis") {
-      return (
-        p.name.includes("Konstruksi") ||
-        p.name.includes("Tripatra") ||
-        p.name.includes("Cirebon") ||
-        p.name.includes("Corridor") ||
-        p.name.includes("Nginovasi") ||
-        p.name.includes("DQC")
-      );
-    }
-    if (selectedCat === "Perguruan Tinggi") {
-      return (
-        p.name.includes("Universitas") ||
-        p.name.includes("Polman") ||
-        p.name.includes("Bangka Belitung")
-      );
-    }
-    return true;
-  });
+  const filteredPartners =
+    selectedCat === "Semua"
+      ? partners
+      : partners.filter((p) => {
+          const cat = categoryMap[p.name] || "BUMN & Industri";
+          return cat === selectedCat;
+        });
 
   return (
     <section
@@ -48,19 +41,18 @@ export function PartnersGrid() {
       aria-labelledby="mitra-heading"
     >
       <div className="container space-y-10">
-        {/* Header */}
+        {/* Header (Clean, no kicker above heading) */}
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between border-b border-slate-200 pb-8">
           <div>
-            <div className="inline-flex items-center gap-2 rounded-md border border-brand-navy/20 bg-brand-navy/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-brand-navy">
-              <Building2 className="h-3.5 w-3.5 text-brand-navy" />
-              Sinergi Quadruple Helix
-            </div>
             <h2
               id="mitra-heading"
-              className="mt-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl"
+              className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl"
             >
               Jejaring Mitra & Kolaborasi Industri
             </h2>
+            <p className="mt-2 text-base font-semibold text-brand-navy">
+              Sinergi Quadruple Helix: BUMN, Pemerintah Daerah, Kampus Teknik, dan Asosiasi Rekanan.
+            </p>
           </div>
           <p className="max-w-xl text-base leading-relaxed text-slate-600">
             Kolaborasi erat bersama badan usaha milik negara, pemerintah daerah, asosiasi industri,

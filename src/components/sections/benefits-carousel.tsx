@@ -2,102 +2,110 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ShieldCheck, Scale, Award, Network, ArrowRight, Check, X } from "lucide-react";
+import {
+  Award,
+  Shield,
+  Briefcase,
+  TrendingUp,
+  Check,
+  X,
+  ArrowRight,
+  BookOpen,
+} from "lucide-react";
 
-type BenefitPillar = {
+interface BenefitPillar {
   id: string;
-  title: string;
   badge: string;
-  icon: typeof ShieldCheck;
+  title: string;
   headline: string;
   description: string;
   advantages: string[];
-};
+  icon: typeof Award;
+}
 
 const pillars: BenefitPillar[] = [
   {
     id: "legal",
-    title: "Legalitas & Perlindungan Hukum",
-    badge: "UU No. 11/2014",
-    icon: ShieldCheck,
-    headline: "Izin Praktik Sah & Perlindungan Profesi Negara",
+    badge: "Otoritas Legal",
+    title: "Legalitas & Hak Praktik STRI",
+    headline: "Kekuatan Hukum Menandatangani Dokumen Teknis Negara",
     description:
-      "Setiap insinyur penanggung jawab teknis proyek wajib mengantongi STRI. Keanggotaan PII memberikan advokasi hukum keteknikan dan jaminan legalitas dalam menandatangani dokumen teknis pemerintah/swasta.",
+      "Sesuai UU No. 11/2014, hanya Insinyur teregistrasi STRI yang sah menandatangani kajian teknis perizinan (PBG/SLF), dokumen DED, AMDAL, dan persetujuan keselamatan kerja proyek.",
     advantages: [
-      "Hak legal menandatangani dokumen perancangan, supervisi, dan pengujian teknis",
-      "Perlindungan hukum dan mediasi etik oleh Dewan Kehormatan PII",
-      "Kepatuhan regulasi Kementerian PUPR dan otoritas perizinan PBG/SLF",
+      "Perlindungan penuh terhadap tuntutan malpraktik rekayasa keteknikan",
+      "Kewenangan formal memimpin komisi penilai ahli bangunan & konstruksi",
+      "Diakui dalam pengadaan barang & jasa pemerintah (LPSE / LKPP)",
     ],
+    icon: Shield,
   },
   {
-    id: "remuneration",
-    title: "Standar Remunerasi & Billing Rate",
-    badge: "Kepres & INKINDO",
-    icon: Scale,
-    headline: "Standarisasi Imbalan Jasa & Nilai Pasar Insinyur",
+    id: "career",
+    badge: "Jenjang Karier",
+    title: "Sertifikasi IPP, IPM & IPU",
+    headline: "Pengakuan Kualifikasi Rekayasa Standar Nasional & Internasional",
     description:
-      "PII menetapkan pedoman billing rate nasional bagi insinyur bersertifikat (IPP, IPM, IPU) sebagai acuan resmi pengadaan jasa konsultansi pemerintah dan industri.",
+      "Sertifikasi Insinyur Profesional membuktikan kompetensi riil Anda di mata industri, membuka peluang promosi manajerial, dan menjadi syarat wajib penugasan proyek strategis nasional.",
     advantages: [
-      "Acuan baku minimum billing rate per jam/bulan berbasis kualifikasi SKK",
-      "Peningkatan daya tawar profesional pada proyek BUMN dan multinasional",
-      "Standardisasi tunjangan keahlian profesi pada struktur korporasi",
+      "Penyetaraan kualifikasi keinsinyuran tingkat regional ASEAN (ACPE)",
+      "Standarisasi billing rate dan remunerasi tenaga ahli keteknikan",
+      "Akses sidang majelis penilai cabang berkala setiap bulan",
     ],
-  },
-  {
-    id: "mobility",
-    title: "Sertifikasi Internasional & Mobilitas",
-    badge: "ASEAN ACPE",
     icon: Award,
-    headline: "Paspor Praktik Lintas Batas Negara Asia Tenggara",
-    description:
-      "Gelar Insinyur Profesional Madya (IPM) memfasilitasi registrasi sebagai ASEAN Chartered Professional Engineer (ACPE) dan APEC Engineer untuk berpraktik di 10 negara ASEAN.",
-    advantages: [
-      "Pengakuan timbal balik kualifikasi insinyur di tingkat regional ASEAN",
-      "Peluang memimpin konsorsium proyek rekayasa multinasional",
-      "Akses basis data insinyur teregistrasi tingkat Asia-Pasifik",
-    ],
   },
   {
-    id: "ecosystem",
-    title: "Jejaring Industri & Proyek Strategis",
-    badge: "Ekosistem Babel",
-    icon: Network,
-    headline: "Konektivitas Eksklusif 14 Badan Kejuruan",
+    id: "advocacy",
+    badge: "Advokasi & Jaringan",
+    title: "Advokasi & Perlindungan Profesi",
+    headline: "Wadah Perlindungan Hukum dan Rumah Kebangsaan Seluruh Insinyur",
     description:
-      "Bergabung dalam komunitas lebih dari 380 insinyur Bangka Belitung dari sektor pertambangan, sipil, kelautan, elektro, dan energi untuk kolaborasi bisnis rekayasa.",
+      "PII hadir mendampingi anggota dalam sengketa keteknikan, investigasi kegagalan bangunan, serta mengadvokasi hak-hak insinyur lokal agar menjadi tuan rumah di tanah kepulauan sendiri.",
     advantages: [
-      "Akses tender proyek dan kemitraan konsorsium rekayasa daerah",
-      "Diskon khusus workshop, lokakarya teknis ber-SKPK, dan kongres tahunan",
-      "Peluang menjadi narasumber ahli pada forum kajian kebijakan pemda",
+      "Bantuan hukum dari Badan Arbitrase dan Mediasi Keteknikan PII",
+      "Jejaring lintas badan kejuruan (BK Sipil, Mesin, Tambang, Elektro, dll.)",
+      "Rekomendasi resmi cabang untuk penempatan komite teknis pemda",
     ],
+    icon: Briefcase,
+  },
+  {
+    id: "knowledge",
+    badge: "Pengembangan Diri",
+    title: "CPD & SKPK Berkelanjutan",
+    headline: "Akses Pelatihan Teknologi Mutakhir & Pemenuhan Kredit SKPK",
+    description:
+      "Program Continuing Professional Development (CPD) rutin untuk memperbarui pengetahuan tentang transisi hijau, komputasi rekayasa AI, BIM presisi, dan regulasi keteknikan terkini.",
+    advantages: [
+      "Kredit SKPK resmi yang diakui untuk perpanjangan berkala STRI",
+      "Diskon khusus anggota untuk workshop teknis dan sertifikasi vendor",
+      "Akses publikasi jurnal ilmiah dan riset keinsinyuran Indonesia",
+    ],
+    icon: TrendingUp,
   },
 ];
 
 export function BenefitsCarousel() {
-  const [activeTab, setActiveTab] = useState("legal");
+  const [activeTab, setActiveTab] = useState<string>("legal");
   const activePillar = pillars.find((p) => p.id === activeTab) || pillars[0];
   const PillarIcon = activePillar.icon;
 
   return (
     <section
       id="manfaat"
-      className="bg-slate-50 py-24 border-b border-slate-200"
+      className="relative bg-slate-50 py-24 border-b border-slate-200"
       aria-labelledby="manfaat-heading"
     >
       <div className="container space-y-12">
-        {/* Header */}
+        {/* Section Header (Clean, no kicker above heading) */}
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between border-b border-slate-200 pb-8">
           <div>
-            <div className="inline-flex items-center gap-2 rounded-md border border-brand-navy/20 bg-brand-navy/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-brand-navy">
-              <Award className="h-3.5 w-3.5 text-brand-navy" />
-              Nilai Tambah & Advokasi
-            </div>
             <h2
               id="manfaat-heading"
-              className="mt-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl"
+              className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl"
             >
-              Mengapa Insinyur Harus Berhimpun di PII?
+              Nilai Tambah & Advokasi Keanggotaan PII
             </h2>
+            <p className="mt-2 text-base font-semibold text-brand-navy">
+              Mengapa seluruh praktisi dan insinyur di Bangka Belitung harus berhimpun di wadah resmi.
+            </p>
           </div>
           <p className="max-w-xl text-base leading-relaxed text-slate-600">
             Bukan sekadar formalitas kartu anggota. PII adalah pilar otoritas yang melindungi karier,
@@ -132,7 +140,7 @@ export function BenefitsCarousel() {
                     <ItemIcon className="h-5 w-5" />
                   </div>
                   <div>
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500">
+                    <span className="text-xs font-bold uppercase tracking-wider text-slate-600">
                       {item.badge}
                     </span>
                     <h3 className="mt-0.5 text-sm font-bold text-slate-900">{item.title}</h3>
@@ -143,7 +151,7 @@ export function BenefitsCarousel() {
           })}
         </div>
 
-        {/* Selected Pillar Detailed Showcase & Comparison */}
+        {/* Selected Pillar Detailed Showcase & Comparison (Flattened, no nested cards) */}
         <div className="rounded-2xl border border-slate-200 bg-white p-8 md:p-10 shadow-sm">
           <div className="grid gap-10 lg:grid-cols-[1.3fr_1fr]">
             <div className="space-y-6">
@@ -152,12 +160,12 @@ export function BenefitsCarousel() {
                   <PillarIcon className="h-6 w-6" />
                 </div>
                 <div>
-                  <span className="text-xs font-semibold uppercase tracking-wider text-brand-blue">
-                    {activePillar.badge}
-                  </span>
                   <h3 className="text-2xl font-bold text-slate-900 sm:text-3xl">
                     {activePillar.headline}
                   </h3>
+                  <span className="text-xs font-semibold uppercase tracking-wider text-brand-blue mt-0.5 block">
+                    {activePillar.badge}
+                  </span>
                 </div>
               </div>
 
@@ -166,7 +174,7 @@ export function BenefitsCarousel() {
               </p>
 
               <div className="space-y-3 pt-2">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-slate-600">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-slate-700">
                   Manfaat Nyata bagi Anggota Cabang:
                 </h4>
                 <ul className="space-y-2.5">
@@ -194,40 +202,40 @@ export function BenefitsCarousel() {
               </div>
             </div>
 
-            {/* Quick Contrast Box: Tanpa STRI vs Ber-STRI */}
-            <div className="rounded-xl border border-slate-200 bg-slate-50 p-6 space-y-6">
+            {/* Quick Contrast Column (Clean CAD divider styling, no nested card) */}
+            <div className="border-t lg:border-t-0 lg:border-l border-slate-200 pt-6 lg:pt-0 lg:pl-8 space-y-6">
               <div className="border-b border-slate-200 pb-3">
                 <h4 className="text-sm font-bold text-slate-900 uppercase tracking-wider">
-                  Komparasi Legalitas Insinyur
+                  Komparasi Legalitas Praktik Insinyur
                 </h4>
-                <span className="text-xs text-slate-500">Berdasarkan Ketentuan UU 11/2014</span>
+                <span className="text-xs text-slate-600">Berdasarkan Ketentuan UU 11/2014</span>
               </div>
 
               <div className="space-y-4">
-                <div className="space-y-2">
+                <div className="space-y-1.5">
                   <div className="flex items-center gap-1.5 text-xs font-bold text-rose-700">
                     <X className="h-4 w-4" />
                     <span>Praktisi Tanpa STRI / Non-PII</span>
                   </div>
-                  <p className="text-xs text-slate-600 pl-5">
+                  <p className="text-xs text-slate-600 pl-5 leading-relaxed">
                     Tidak memiliki hak legal menandatangani kajian teknis. Rentan sanksi
-                    administratif dan pembatalan izin proyek.
+                    administratif dan pembatalan izin proyek formal.
                   </p>
                 </div>
 
-                <div className="border-t border-slate-200 pt-3 space-y-2">
+                <div className="border-t border-slate-100 pt-3 space-y-1.5">
                   <div className="flex items-center gap-1.5 text-xs font-bold text-emerald-700">
                     <Check className="h-4 w-4" />
                     <span>Insinyur Profesional Ber-STRI Aktif</span>
                   </div>
-                  <p className="text-xs text-slate-700 pl-5">
+                  <p className="text-xs text-slate-700 pl-5 leading-relaxed">
                     Sah bertindak sebagai penanggung jawab proyek negara/swasta, berhak atas billing
                     rate resmi, dan dinaungi advokasi dewan kehormatan PII.
                   </p>
                 </div>
               </div>
 
-              <div className="rounded-lg bg-white p-4 border border-slate-200 text-xs text-slate-600">
+              <div className="border-l-2 border-brand-navy pl-4 py-1 text-xs text-slate-700">
                 <span className="font-bold text-slate-900 block">Pusat Layanan Babel:</span>
                 Konsultasi berkas dan checklist sertifikasi dibuka setiap hari kerja di Sekretariat
                 PII Pangkalpinang.

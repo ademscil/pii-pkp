@@ -3,51 +3,41 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Newspaper, Calendar, Eye, ArrowRight, Filter } from "lucide-react";
+import { ArrowRight, Calendar, Eye, Filter } from "lucide-react";
 import { news } from "@/data/site-content";
 
-const categories = ["Semua Warta", "Kajian Hilirisasi", "Regulasi & Profesi", "Inovasi Maritim"];
+const categories = ["Semua", "Kajian Strategis", "Sertifikasi", "Ekosistem Industri", "Organisasi"];
 
 export function NewsGrid() {
-  const [selectedCategory, setSelectedCategory] = useState("Semua Warta");
+  const [selectedCategory, setSelectedCategory] = useState("Semua");
 
-  const filteredNews = news.filter((item) => {
-    if (selectedCategory === "Semua Warta") return true;
-    if (selectedCategory === "Kajian Hilirisasi") {
-      return item.category.toLowerCase().includes("hilirisasi") || item.title.toLowerCase().includes("timah");
-    }
-    if (selectedCategory === "Regulasi & Profesi") {
-      return item.category.toLowerCase().includes("regulasi") || item.category.toLowerCase().includes("profesi");
-    }
-    if (selectedCategory === "Inovasi Maritim") {
-      return item.category.toLowerCase().includes("maritim") || item.category.toLowerCase().includes("pelabuhan");
-    }
-    return true;
-  });
+  const filteredNews =
+    selectedCategory === "Semua"
+      ? news
+      : news.filter((item) => item.category === selectedCategory);
 
   const featured = filteredNews[0] || news[0];
-  const sideArticles = filteredNews.slice(1);
+  const sideArticles = filteredNews.slice(1, 4);
 
   return (
     <section
       id="berita"
-      className="bg-white py-24 border-b border-slate-200"
+      className="relative bg-white py-24 border-b border-slate-200"
       aria-labelledby="berita-heading"
     >
       <div className="container space-y-10">
-        {/* Header */}
+        {/* Header (Clean, no kicker above heading) */}
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between border-b border-slate-200 pb-8">
           <div>
-            <div className="inline-flex items-center gap-2 rounded-md border border-brand-navy/20 bg-brand-navy/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-brand-navy">
-              <Newspaper className="h-3.5 w-3.5 text-brand-navy" />
-              Warta & Kajian Rekayasa
-            </div>
             <h2
               id="berita-heading"
-              className="mt-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl"
+              className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl"
             >
               Kabar Keteknikan Bangka Belitung
             </h2>
+            <p className="mt-2 text-base font-semibold text-brand-navy">
+              Warta resmi, kajian lapangan, dan opini kepakaran insinyur daerah.
+            </p>
           </div>
           <p className="max-w-xl text-base leading-relaxed text-slate-600">
             Publikasi resmi hasil survei teknis, opini insinyur cabang, regulasi praktik profesi,
@@ -99,15 +89,15 @@ export function NewsGrid() {
               </div>
 
               <div className="p-6 md:p-8 space-y-4">
-                <div className="flex items-center gap-4 text-xs font-semibold text-slate-500">
+                <div className="flex items-center gap-4 text-xs font-semibold text-slate-600">
                   <span className="flex items-center gap-1">
                     <Calendar className="h-3.5 w-3.5 text-brand-blue" />
                     {featured.date}
                   </span>
                   {featured.views && (
                     <span className="flex items-center gap-1">
-                      <Eye className="h-3.5 w-3.5 text-slate-400" />
-                      {featured.views} pembaca
+                      <Eye className="h-3.5 w-3.5 text-slate-500" />
+                      <span className="tabular-nums">{featured.views}</span> pembaca
                     </span>
                   )}
                 </div>
@@ -150,7 +140,7 @@ export function NewsGrid() {
 
                 <div className="flex flex-1 flex-col justify-between space-y-2">
                   <div>
-                    <div className="flex items-center gap-2 text-[11px] font-semibold text-slate-500">
+                    <div className="flex items-center gap-2 text-xs font-semibold text-slate-600">
                       <span className="text-brand-blue font-bold">{item.category}</span>
                       <span>•</span>
                       <span>{item.date}</span>

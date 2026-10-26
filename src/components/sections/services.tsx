@@ -2,9 +2,15 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { CheckCircle2, ShieldCheck, Award, FileText, ArrowRight, HelpCircle } from "lucide-react";
+import {
+  ArrowRight,
+  CheckCircle2,
+  FileText,
+  Award,
+  HelpCircle,
+} from "lucide-react";
 
-type Track = {
+interface CertificationTrack {
   id: string;
   code: string;
   title: string;
@@ -12,139 +18,149 @@ type Track = {
   minExp: string;
   credits: string;
   description: string;
+  targetAudience: string;
   criteria: string[];
   documents: string[];
-  targetAudience: string;
   majelisDuration: string;
   ctaText: string;
   ctaUrl: string;
-};
+}
 
-const tracks: Track[] = [
+const tracks: CertificationTrack[] = [
   {
     id: "ipp",
-    code: "IPP",
+    code: "IPP (Insinyur Profesional Pratama)",
     title: "Insinyur Profesional Pratama",
-    badge: "Jenjang Awal",
-    minExp: "Minimal 3 Tahun Praktik",
-    credits: "Target 600 SKPK",
+    badge: "Karier Pratama",
+    minExp: "Pengalaman >= 3 Tahun",
+    credits: "Akumulasi Skor FAIP: min. 600",
     description:
-      "Tingkat sertifikasi kompetensi awal bagi sarjana teknik/insinyur yang telah mengumpulkan rekam jejak praktik nyata dalam perancangan, pelaksanaan, atau operasi keinsinyuran.",
+      "Jenjang kualifikasi awal untuk sarjana teknik atau terapan yang telah bekerja mandiri dalam bidang keinsinyuran selama minimal 3 tahun berturut-turut.",
+    targetAudience:
+      "Site Engineer, Junior Design Engineer, QC Inspector, dan Field Supervisor proyek kepulauan.",
     criteria: [
-      "Ijazah S.T. / S.Tr.T terakreditasi dari perguruan tinggi",
-      "Pengalaman kerja teknis terbukti minimal 3 tahun berturut-turut",
-      "Pernah terlibat dalam minimal 2 proyek rekayasa keteknikan",
-      "Telah terdaftar sebagai anggota aktif Persatuan Insinyur Indonesia",
+      "Ijazah S.T. / S.Tr.T terakreditasi BAN-PT atau gelar Insinyur (Ir.)",
+      "KTA PII aktif masa berlaku berjalan",
+      "Portofolio minimum 2 proyek rekayasa selesai atau berjalan",
+      "Dokumentasi Continuing Professional Development (CPD) dasar",
     ],
     documents: [
-      "FAIP (Formulir Aplikasi Insinyur Profesional)",
-      "Portofolio Laporan Proyek & Sertifikat Pelatihan",
-      "Surat Referensi dari Atasan / Rekan IPM/IPU",
+      "Formulir Aplikasi Insinyur Profesional (FAIP)",
+      "Salinan Legalisir Ijazah & Transkrip",
+      "Surat Keterangan Pengalaman Kerja dari Perusahaan / Instansi",
+      "Sertifikat Pelatihan Keteknikan / SKK",
     ],
-    targetAudience: "Fresh engineers, junior supervisor, site engineer, analis teknis.",
-    majelisDuration: "2 - 3 Pekan (Verifikasi Dokumen Badan Kejuruan)",
-    ctaText: "Daftar Sertifikasi IPP Nasional",
-    ctaUrl: "https://updmember.pii.or.id/auth/register",
+    majelisDuration: "3 - 5 Minggu (Verifikasi Cabang + Majelis)",
+    ctaText: "Akses Formulir FAIP Online",
+    ctaUrl: "https://simpore.pii.or.id/",
   },
   {
     id: "ipm",
-    code: "IPM",
+    code: "IPM (Insinyur Profesional Madya)",
     title: "Insinyur Profesional Madya",
-    badge: "Jenjang Menengah",
-    minExp: "Minimal 7 Tahun Praktik",
-    credits: "Target 1.500 SKPK",
+    badge: "Karier Madya",
+    minExp: "Pengalaman >= 8 Tahun",
+    credits: "Akumulasi Skor FAIP: min. 1.200",
     description:
-      "Standar profesional bagi insinyur yang telah memimpin proyek strategis, memegang tanggung jawab teknis independen, dan mengelola risiko multidisiplin.",
+      "Kualifikasi bagi insinyur yang telah memimpin proyek rekayasa keteknikan, memiliki tanggung jawab manajerial, dan membimbing tim teknis lapangan.",
+    targetAudience:
+      "Project Manager, Lead Engineer, Konsultan Perencana, Kepala Divisi Engineering & Pabrik Pengolahan.",
     criteria: [
-      "Telah mengantongi gelar profesi Insinyur (Ir.) dan KTA PII aktif",
-      "Pengalaman praktik keinsinyuran mandiri minimal 7 tahun",
-      "Memiliki kepemimpinan teknis pada proyek bernilai strategis",
-      "Bukti partisipasi CPD/PKB (Pengembangan Keprofesian Berkelanjutan)",
+      "Telah berstatus IPP minimal 3 tahun ATAU pengalaman profesional >= 8 tahun",
+      "Memimpin minimal 1 studi kelayakan atau perancangan rekayasa kompleks",
+      "Memiliki kontribusi inovasi teknologi atau optimasi proses industri",
+      "Pemenuhan minimal 50 jam SKPK / CPD dalam 3 tahun terakhir",
     ],
     documents: [
-      "Narasi Portofolio Proyek Utama (Engineering Case Study)",
-      "Bukti SKK/Jabatan Manajerial Rekayasa",
-      "Sertifikat Keikutsertaan Seminar & Lokakarya Teknis",
+      "FAIP Lengkap dengan lampiran kalkulasi teknis",
+      "Laporan Portofolio Proyek Utama & Bukti Tanda Tangan",
+      "Daftar Publikasi / Rekomendasi 2 Insinyur IPM/IPU Sejenis",
+      "KTA PII aktif & Bukti Bebas Pelanggaran Etika Profesi",
     ],
-    targetAudience: "Project manager, lead consultant, chief engineer daerah, pengajar teknik.",
-    majelisDuration: "3 - 4 Pekan (Termasuk Sidang Wawancara Majelis)",
-    ctaText: "Ajukan Sidang Majelis IPM",
-    ctaUrl: "https://updmember.pii.or.id/auth/register",
+    majelisDuration: "4 - 6 Minggu (Sidang Majelis BK Nasional)",
+    ctaText: "Panduan Penilaian IPM",
+    ctaUrl: "https://registrasi.pii.or.id/layanan/sertifikasi",
   },
   {
     id: "ipu",
-    code: "IPU",
+    code: "IPU (Insinyur Profesional Utama)",
     title: "Insinyur Profesional Utama",
-    badge: "Tingkat Tertinggi",
-    minExp: "Minimal 12 Tahun Praktik",
-    credits: "Target 3.000 SKPK",
+    badge: "Otoritas Tertinggi",
+    minExp: "Pengalaman >= 15 Tahun",
+    credits: "Akumulasi Skor FAIP: min. 3.000",
     description:
-      "Tingkat kehormatan dan keahlian tertinggi. Insinyur Utama diakui sebagai otoritas teknis nasional, perumus kebijakan rekayasa, penasihat strategis, dan penguji sidang majelis.",
+      "Jenjang kompetensi keinsinyuran tertinggi nasional. Diberikan kepada pakar yang menghasilkan dampak rekayasa strategis, kebijakan teknis daerah, atau karya terobosan nasional.",
+    targetAudience:
+      "Direktur Teknik, Principal Consultant, Ahli Madya/Utama Instansi, Penilai Ahli Kegagalan Bangunan.",
     criteria: [
-      "Pengalaman rekayasa tingkat tinggi lebih dari 12 tahun",
-      "Rekam jejak kontribusi orisinal pada infrastruktur, industri, atau riset nasional",
-      "Pengakuan kepemimpinan etik dan bimbingan terhadap insinyur muda",
-      "Publikasi teknis, paten teknologi, atau regulasi standar industri",
+      "Telah berstatus IPM minimal 4 tahun atau rekam jejak kepakaran >= 15 tahun",
+      "Karya monumental diakui secara luas (paten, desain fasilitas vital, regulasi keteknikan)",
+      "Aktif sebagai pengajar, pembicara seminar keinsinyuran, atau mentor profesi",
+      "Lolos wawancara pleno Dewan Majelis Penilai Nasional",
     ],
     documents: [
-      "Dokumen Portofolio Karya Monumental Keinsinyuran",
-      "Surat Dukungan 3 Insinyur Utama (IPU) Senior",
-      "Daftar Publikasi / Rekayasa Teknologi Nasional",
+      "FAIP Tingkat Lanjut dengan dokumentasi dampak proyek",
+      "Koleksi Laporan Rekayasa Kunci & Bukti Kepemilikan Teknis",
+      "Rekomendasi tertulis 3 Insinyur IPU",
+      "Makalah Orasi Keinsinyuran / Ringkasan Gagasan Terobosan",
     ],
-    targetAudience: "Direktur teknis, konsultan ahli utama, dewan penasehat infrastruktur.",
-    majelisDuration: "Sidang Pleno Majelis Penilai Pusat",
-    ctaText: "Konsultasi Jalur IPU Cabang",
-    ctaUrl: "https://wa.me/6281806701775?text=Halo%20Sekretariat%20PII%20Pangkalpinang,%20saya%20ingin%20konsultasi%20jalur%20IPU",
-  },
-  {
-    id: "rpl",
-    code: "PPI/RPL",
-    title: "Program Profesi Insinyur (RPL)",
-    badge: "Pendidikan Tinggi",
-    minExp: "Portofolio Pengalaman Nyata",
-    credits: "Konversi SKS Akademik",
-    description:
-      "Jalur rekognisi pembelajaran lampau (RPL) untuk meraih gelar profesi resmi Insinyur (Ir.) dari perguruan tinggi terakreditasi berdasarkan pengalaman kerja terdokumentasi tanpa kuliah reguler penuh.",
-    criteria: [
-      "Lulusan S1 Teknik minimal 4 tahun kelulusan",
-      "Memiliki portofolio rekam kerja bidang rekayasa secara kontinu",
-      "Siap mengikuti penyusunan berkas portofolio konversi 24 SKS",
-      "Kerjasama resmi PII dengan UBB, Polman Babel, ITB, UGM, dan PTN/PTS mitra",
-    ],
-    documents: [
-      "Transkrip Nilai Sarjana & Ijazah S1 Teknik Legalisir",
-      "Portofolio Rekam Jejak Lapangan (Curriculum Vitae Teknis)",
-      "Surat Keterangan Pengalaman Kerja dari Instansi/Perusahaan",
-    ],
-    targetAudience: "Praktisi sarjana teknik yang belum memiliki gelar resmi Insinyur (Ir.).",
-    majelisDuration: "1 Semester (Penilaian Portofolio & Yudisium Kampus)",
-    ctaText: "Panduan Jalur RPL Bangka Belitung",
-    ctaUrl: "https://wa.me/6281806701775?text=Halo%20PII%20Pangkalpinang,%20mohon%20info%20pendaftaran%20PPI%20RPL%20mitra%20Babel",
+    majelisDuration: "6 - 8 Minggu (Sidang Pleno Majelis Utama)",
+    ctaText: "Mulai Jalur IPU & Majelis",
+    ctaUrl: "https://simpore.pii.or.id/",
   },
   {
     id: "stri",
-    code: "STRI",
-    title: "Surat Tanda Registrasi Insinyur",
-    badge: "Legalitas Negara",
-    minExp: "Pasca-Sertifikasi IPP/IPM/IPU",
-    credits: "Kepatuhan UU No. 11/2014",
+    code: "STRI (Surat Tanda Registrasi Insinyur)",
+    title: "Surat Tanda Registrasi Insinyur (STRI)",
+    badge: "Mandat UU 11/2014",
+    minExp: "Wajib untuk Praktik Legal",
+    credits: "Berlaku 5 Tahun (Dapat Diperpanjang)",
     description:
-      "Dokumen legalitas tertinggi yang diterbitkan oleh PII dan diakui pemerintah Republik Indonesia. Wajib dimiliki setiap insinyur yang melakukan penandatanganan teknis, supervisi legal, atau praktik keinsinyuran.",
+      "Izin resmi negara untuk menjalankan praktik keinsinyuran dan menandatangani dokumen teknis formal (DED, AMDAL, Kajian Tambang, Perizinan Bangunan Gedung / PBG).",
+    targetAudience:
+      "Seluruh insinyur penanggung jawab teknis proyek, konsultan bersertifikasi, dan pengawas keselamatan kerja.",
     criteria: [
-      "Telah mengantongi Sertifikat Insinyur Profesional (IPP / IPM / IPU)",
-      "Menandatangani Pakta Integritas dan Kode Etik Insinyur Indonesia",
-      "Masa berlaku 5 tahun dan dapat diperpanjang secara berkala",
-      "Terdaftar dalam basis data legal kementerian dan otoritas keteknikan",
+      "Memiliki Sertifikat Insinyur Profesional (IPP / IPM / IPU) aktif",
+      "Memiliki gelar akademik Insinyur (Ir.) dari perguruan tinggi terakreditasi",
+      "KTA PII aktif masa berlaku berjalan",
+      "Pakta integritas kepatuhan Kode Etik Catur Karsa Sapta Dharma Insinyur",
     ],
     documents: [
-      "Salinan Sertifikat Insinyur Profesional yang Masih Berlaku",
-      "Kartu Tanda Anggota (KTA) PII Aktif",
-      "Pasfoto Resmi dan Bukti Pembayaran PNBP/Registrasi",
+      "Salinan Sertifikat Insinyur Profesional",
+      "Salinan Ijazah Program Profesi Insinyur (PPI)",
+      "Pasfoto formal berlatar belakang merah",
+      "Bukti bayar PNBP registrasi STRI resmi negara",
     ],
-    targetAudience: "Seluruh insinyur penanggung jawab proyek, konsultan perencana, pengawas independen.",
-    majelisDuration: "Penerbitan Digital Resmi PII Pusat",
-    ctaText: "Cek Status STRI di Portal Pusat",
+    majelisDuration: "2 - 3 Minggu (Penerbitan Resmi PII Pusat)",
+    ctaText: "Penerbitan STRI Nasional",
     ctaUrl: "https://updmember.pii.or.id/",
+  },
+  {
+    id: "ppi",
+    code: "PPI / RPL (Program Profesi Insinyur)",
+    title: "Program Profesi Insinyur & Jalur RPL",
+    badge: "Pendidikan Profesi",
+    minExp: "S.T. / S.Tr.T / Rekognisi",
+    credits: "24 SKS (Perkuliahan / Portofolio)",
+    description:
+      "Program akademik tinggi untuk menyematkan gelar resmi Insinyur (Ir.). Dapat ditempuh lewat jalur kuliah reguler atau Rekognisi Pembelajaran Lampau (RPL) berbasis bukti kerja.",
+    targetAudience:
+      "Sarjana Teknik fresh graduate maupun praktisi berpengalaman yang belum menyandang gelar profesi Ir.",
+    criteria: [
+      "Lulusan Sarjana Teknik (S.T.) atau Sarjana Terapan Teknik (S.Tr.T)",
+      "Jalur RPL: Memiliki pengalaman kerja teknik minimal 4 tahun berturut-turut",
+      "Menyusun portofolio rekayasa sesuai rubrik 24 SKS perguruan tinggi mitra",
+      "Terdaftar sebagai anggota muda PII",
+    ],
+    documents: [
+      "Ijazah & Transkrip Akademik S1/D4 Teknik",
+      "Portofolio RPL (Laporan Proyek, Desain, SOP)",
+      "Surat Rekomendasi Pimpinan Tempat Bekerja",
+      "Surat Keterangan Sehat & Berkelakuan Baik",
+    ],
+    majelisDuration: "1 Semester (RPL) / 2 Semester (Reguler)",
+    ctaText: "Informasi Mitra Kampus PPI",
+    ctaUrl: "https://registrasi.pii.or.id/layanan/sertifikasi",
   },
 ];
 
@@ -154,16 +170,16 @@ export function ServicesSection() {
 
   const activeTrack = tracks.find((t) => t.id === activeTab) || tracks[0];
 
-  const handleToggleCheck = (criterionIndex: number) => {
-    const key = `${activeTab}-${criterionIndex}`;
+  const handleToggleCheck = (index: number) => {
+    const key = `${activeTab}-${index}`;
     setCheckedCriteria((prev) => ({
       ...prev,
       [key]: !prev[key],
     }));
   };
 
-  const completedCount = activeTrack.criteria.filter((_, idx) =>
-    checkedCriteria[`${activeTab}-${idx}`]
+  const completedCount = activeTrack.criteria.filter(
+    (_, idx) => checkedCriteria[`${activeTab}-${idx}`]
   ).length;
 
   const isAllCompleted = completedCount === activeTrack.criteria.length;
@@ -175,24 +191,22 @@ export function ServicesSection() {
       aria-labelledby="layanan-heading"
     >
       <div className="container">
-        {/* Section Header */}
+        {/* Section Header (Clean, no kicker above heading) */}
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between border-b border-slate-200 pb-10">
           <div>
-            <div className="inline-flex items-center gap-2 rounded-md border border-brand-navy/20 bg-brand-navy/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-brand-navy">
-              <ShieldCheck className="h-3.5 w-3.5 text-brand-navy" />
-              Sertifikasi & Layanan Keinsinyuran
-            </div>
             <h2
               id="layanan-heading"
-              className="mt-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl"
+              className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl"
             >
-              Jenjang Karier & Legalitas Insinyur
+              Jenjang Karier & Legalitas Praktik Insinyur
             </h2>
+            <p className="mt-2 text-base font-semibold text-brand-navy">
+              Sertifikasi resmi kompetensi, pengakuan gelar profesi, dan mandat UU No. 11 Tahun 2014.
+            </p>
           </div>
           <p className="max-w-xl text-base leading-relaxed text-slate-600">
-            Sesuai amanat UU No. 11 Tahun 2014, PII Cabang Pangkalpinang memfasilitasi pendampingan
-            berkas sertifikasi, verifikasi rekam kerja, hingga persiapan sidang majelis penilai
-            tingkat nasional.
+            PII Cabang Pangkalpinang memfasilitasi pendampingan berkas FAIP, verifikasi pengalaman kerja,
+            hingga persiapan sidang majelis penilai tingkat nasional bagi seluruh insinyur di Kepulauan Bangka Belitung.
           </p>
         </div>
 
@@ -221,7 +235,7 @@ export function ServicesSection() {
                   {track.code.slice(0, 3)}
                 </span>
                 <span>{track.title}</span>
-                <span className="hidden md:inline-block rounded-full bg-slate-100 px-2 py-0.5 text-[11px] font-medium text-slate-600">
+                <span className="hidden md:inline-block rounded-full bg-slate-100 px-2 py-0.5 text-xs font-semibold text-slate-600">
                   {track.badge}
                 </span>
               </button>
@@ -229,10 +243,10 @@ export function ServicesSection() {
           })}
         </div>
 
-        {/* Interactive Active Track Content Card */}
+        {/* Active Track Content (Flattened layout, no nested card clutter) */}
         <div className="mt-0 rounded-b-2xl border-x border-b border-slate-200 bg-white p-8 md:p-10 shadow-sm">
           <div className="grid gap-10 lg:grid-cols-[1.5fr_1fr]">
-            {/* Left Column: Details & Interactive Qualification Checklist */}
+            {/* Left Column: Track Details & Interactive Checklist */}
             <div className="space-y-8">
               <div>
                 <div className="flex flex-wrap items-center gap-3">
@@ -251,9 +265,9 @@ export function ServicesSection() {
                 </p>
               </div>
 
-              {/* Interactive Self-Assessment Checklist */}
-              <div className="rounded-xl border border-slate-200 bg-slate-50/70 p-6">
-                <div className="flex items-center justify-between border-b border-slate-200 pb-4">
+              {/* Interactive Self-Assessment Checklist (Clean divided section) */}
+              <div className="border-t border-slate-200 pt-6">
+                <div className="flex items-center justify-between pb-4">
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="h-5 w-5 text-brand-navy" />
                     <h4 className="text-sm font-bold uppercase tracking-wider text-slate-900">
@@ -271,11 +285,11 @@ export function ServicesSection() {
                   </span>
                 </div>
 
-                <p className="mt-3 text-xs text-slate-500">
-                  Centang kualifikasi yang telah Anda penuhi untuk mengecek kesiapan berkas:
+                <p className="text-xs text-slate-600">
+                  Centang kualifikasi yang telah Anda penuhi untuk mengukur kesiapan berkas:
                 </p>
 
-                <div className="mt-4 space-y-3">
+                <div className="mt-4 space-y-2.5">
                   {activeTrack.criteria.map((criterion, idx) => {
                     const isChecked = Boolean(checkedCriteria[`${activeTab}-${idx}`]);
                     return (
@@ -311,7 +325,7 @@ export function ServicesSection() {
               </div>
 
               {/* Documents Needed */}
-              <div>
+              <div className="border-t border-slate-200 pt-6">
                 <h4 className="flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-slate-900">
                   <FileText className="h-4 w-4 text-brand-navy" />
                   Dokumen Portofolio Utama
@@ -320,7 +334,7 @@ export function ServicesSection() {
                   {activeTrack.documents.map((doc) => (
                     <li
                       key={doc}
-                      className="flex items-center gap-2 rounded-lg border border-slate-100 bg-slate-50 px-3 py-2 text-xs font-medium text-slate-700"
+                      className="flex items-center gap-2 rounded-lg border border-slate-200/80 bg-slate-50 px-3 py-2 text-xs font-medium text-slate-700"
                     >
                       <span className="h-1.5 w-1.5 rounded-full bg-brand-blue" />
                       <span>{doc}</span>
@@ -331,29 +345,29 @@ export function ServicesSection() {
             </div>
 
             {/* Right Column: Execution Metadata & Official Actions */}
-            <div className="flex flex-col justify-between rounded-2xl border border-slate-200 bg-slate-900 p-8 text-white shadow-md">
+            <div className="flex flex-col justify-between rounded-xl bg-slate-900 p-8 text-white">
               <div className="space-y-6">
                 <div>
-                  <span className="text-xs font-semibold uppercase tracking-[0.25em] text-slate-400">
+                  <span className="text-xs font-semibold uppercase tracking-[0.25em] text-slate-300">
                     Estimasi Sidang Majelis
                   </span>
-                  <p className="mt-1 text-lg font-bold text-white">{activeTrack.majelisDuration}</p>
+                  <p className="mt-1 text-lg font-bold text-white tabular-nums">{activeTrack.majelisDuration}</p>
                 </div>
 
                 <div className="border-t border-slate-800 pt-5">
-                  <span className="text-xs font-semibold uppercase tracking-[0.25em] text-slate-400">
+                  <span className="text-xs font-semibold uppercase tracking-[0.25em] text-slate-300">
                     Disiplin & Profil Sasaran
                   </span>
-                  <p className="mt-1 text-sm leading-relaxed text-slate-300">
+                  <p className="mt-1 text-sm leading-relaxed text-slate-200">
                     {activeTrack.targetAudience}
                   </p>
                 </div>
 
                 <div className="border-t border-slate-800 pt-5">
-                  <span className="text-xs font-semibold uppercase tracking-[0.25em] text-slate-400">
+                  <span className="text-xs font-semibold uppercase tracking-[0.25em] text-slate-300">
                     Legalitas Nasional
                   </span>
-                  <p className="mt-1 text-xs leading-relaxed text-slate-400">
+                  <p className="mt-1 text-xs leading-relaxed text-slate-300">
                     Sertifikat diakui oleh LPJK, Kementerian PUPR, dan standar insinyur internasional
                     (AFEO / ASEAN Chartered Professional Engineer).
                   </p>
@@ -375,7 +389,7 @@ export function ServicesSection() {
                   href={`https://wa.me/6281806701775?text=Halo%20Sekretariat%20PII%20Pangkalpinang,%20saya%20ingin%20konsultasi%20mengenai%20${activeTrack.code}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex w-full items-center justify-center gap-2 rounded-xl border border-slate-700 bg-slate-800/80 px-4 py-2.5 text-xs font-semibold text-slate-300 transition hover:bg-slate-800 hover:text-white"
+                  className="flex w-full items-center justify-center gap-2 rounded-xl border border-slate-700 bg-slate-800/80 px-4 py-2.5 text-xs font-semibold text-slate-200 transition hover:bg-slate-800 hover:text-white"
                 >
                   <HelpCircle className="h-3.5 w-3.5" />
                   <span>Konsultasi Berkas via WhatsApp Cabang</span>
@@ -385,23 +399,23 @@ export function ServicesSection() {
           </div>
         </div>
 
-        {/* Local Support Pillars */}
+        {/* Local Support Architecture (Clean CAD border layout instead of nested card row) */}
         <div className="mt-12 grid gap-6 md:grid-cols-3">
-          <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+          <div className="border-t-2 border-brand-navy bg-white p-6 shadow-sm">
             <h4 className="text-base font-bold text-slate-900">Verifikasi Dokumen Cabang</h4>
             <p className="mt-2 text-sm text-slate-600">
               Sekretariat Pangkalpinang mengasistensi kelengkapan berkas FAIP dan SKK sebelum
               diajukan ke sistem nasional, meminimalisir revisi berulang.
             </p>
           </div>
-          <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+          <div className="border-t-2 border-brand-blue bg-white p-6 shadow-sm">
             <h4 className="text-base font-bold text-slate-900">Klinik Penulisan FAIP</h4>
             <p className="mt-2 text-sm text-slate-600">
               Sesi mentoring berkala bersama insinyur senior IPM/IPU untuk menyusun narasi portofolio
               proyek strategis Bangka Belitung sesuai standar baku.
             </p>
           </div>
-          <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+          <div className="border-t-2 border-slate-700 bg-white p-6 shadow-sm">
             <h4 className="text-base font-bold text-slate-900">Jejaring Advokasi Profesi</h4>
             <p className="mt-2 text-sm text-slate-600">
               Perlindungan hukum dan advokasi profesional bagi seluruh insinyur ber-STRI aktif dalam
@@ -413,3 +427,6 @@ export function ServicesSection() {
     </section>
   );
 }
+
+export { ServicesSection as Services };
+

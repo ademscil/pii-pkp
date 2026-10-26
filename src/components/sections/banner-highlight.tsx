@@ -3,9 +3,16 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Compass, Cpu, Anchor, Waves, ArrowRight, Download } from "lucide-react";
+import {
+  ArrowRight,
+  Download,
+  Lightbulb,
+  Cpu,
+  Anchor,
+  Droplets,
+} from "lucide-react";
 
-type Initiative = {
+interface StrategicInitiative {
   id: string;
   category: string;
   title: string;
@@ -13,85 +20,89 @@ type Initiative = {
   metricLabel: string;
   metricValue: string;
   subMetric: string;
-  icon: typeof Compass;
-  image: string;
-  recommendations: string[];
   disciplines: string[];
+  recommendations: string[];
   docUrl: string;
-};
+  image: string;
+  icon: typeof Lightbulb;
+}
 
-const initiatives: Initiative[] = [
+const initiatives: StrategicInitiative[] = [
   {
     id: "plts-kolong",
     category: "Transisi Energi & Pascatambang",
     title: "Pemanfaatan Kolong Pascatambang untuk PLTS Terapung",
-    lead: "Kajian komprehensif rekayasa sipil, lingkungan, dan kelistrikan untuk memanfaatkan ratusan hektare kolong air bekas tambang timah menjadi pembangkit listrik tenaga surya terapung rendah evaporasi.",
-    metricLabel: "Potensi Energi Bersih",
-    metricValue: "180+ MWp",
-    subMetric: "Meliputi 14 titik kolong strategis di Bangka & Belitung",
-    icon: Compass,
-    image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1200&q=80",
+    lead:
+      "Studi kelayakan teknis pemanfaatan ribuan hektar kolong bekas tambang timah di Bangka Belitung sebagai floating solar PV untuk menyuplai energi bersih kawasan industri.",
+    metricLabel: "Potensi Daya Terpasang",
+    metricValue: "450 MWp",
+    subMetric: "Di 87 Kolong Prioritas",
+    disciplines: ["Teknik Elektro", "Teknik Lingkungan", "Teknik Sipil Air"],
     recommendations: [
-      "Studi kestabilan penjangkaran (mooring system) terhadap fluktuasi muka air kolong",
-      "Analisis kualitas air dan pencegahan degradasi pH asam akibat struktur penunjang",
-      "Integrasi interkoneksi gardu induk PLN wilayah Bangka",
+      "Stabilitas jangkar apung terhadap fluktuasi muka air kolong",
+      "Karakteristik korosi panel akibat keasaman air pascatambang (pH 4-5)",
+      "Interkoneksi jaringan transmisi 150 kV sistem Bangka",
     ],
-    disciplines: ["Teknik Elektro", "Teknik Sipil Keairan", "Teknik Lingkungan", "Teknik Material"],
     docUrl: "/documents/surat-keterangan-organisasi-pii-pkp.pdf",
+    image: "/partners/green-corridor.jpg",
+    icon: Lightbulb,
   },
   {
-    id: "hilirisasi-ree",
-    category: "Metalurgi & Material Maju",
-    title: "Hilirisasi Pasir Kuarsa & Logam Tanah Jarang (REE)",
-    lead: "Pengawalan roadmap pengolahan mineral monasit dan pasir kuarsa lokal Bangka Belitung menjadi bahan baku semikonduktor, panel surya, dan magnet permanen bernilai tambah tinggi.",
-    metricLabel: "Nilai Tambah Ekonomi",
-    metricValue: "12x Lipat",
-    subMetric: "Dibandingkan ekspor bahan mentah tanpa pemurnian",
-    icon: Cpu,
-    image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80",
+    id: "hilirisasi-pasir",
+    category: "Hilirisasi Mineral & REE",
+    title: "Rantai Pasok Pasir Kuarsa & Logam Tanah Jarang (Monasit)",
+    lead:
+      "Penyusunan peta jalan keteknikan pengolahan monasit dan ilmenit sisa hasil tambang timah menjadi bahan baku magnet permanen untuk rantai pasok industri masa depan.",
+    metricLabel: "Nilai Tambah Hilirisasi",
+    metricValue: "18.4x",
+    subMetric: "Dari Komoditas Mentah ke Produk Akhir",
+    disciplines: ["Teknik Metalurgi", "Teknik Kimia", "Teknik Pertambangan"],
     recommendations: [
-      "Desain smelter ramah lingkungan dengan emisi karbon minimal di KI Sadai",
-      "Penerapan teknologi ekstraksi hidrometalurgi untuk mineral ikutan timah",
-      "Standardisasi keselamatan radiasi dan pengelolaan tailing bersertifikat",
+      "Standardisasi pemisahan radioaktif alami (NORM) monasit",
+      "Pembangunan smelter presisi ramah lingkungan di Sadai",
+      "Kemitraan riset bersama perguruan tinggi vokasi kepulauan",
     ],
-    disciplines: ["Teknik Metalurgi", "Teknik Kimia", "Teknik Fisika", "Teknik Industri"],
     docUrl: "/documents/surat-keterangan-organisasi-pii-pkp.pdf",
+    image: "/partners/cirebon-power.png",
+    icon: Cpu,
   },
   {
     id: "pelabuhan-pangkalbalam",
-    category: "Infrastruktur & Maritim",
-    title: "Revitalisasi & Pengerukan Alur Pelabuhan Pangkal Balam",
-    lead: "Solusi rekayasa sedimentasi muara sungai Baturusa guna meningkatkan kapasitas sandar kapal kargo, memperlancar rantai pasok logistik kepulauan, dan menekan disparitas harga barang.",
-    metricLabel: "Peningkatan Arus Kontainer",
-    metricValue: "45% Efisiensi",
-    subMetric: "Mengurangi waktu tunggu kapal (dwelling time) dari 36 jam ke 12 jam",
-    icon: Anchor,
-    image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80",
+    category: "Infrastruktur Maritim & Logistik",
+    title: "Kajian Alur Pelayaran & Dermaga Pangkal Balam",
+    lead:
+      "Solusi rekayasa sedimentasi alur Sungai Baturusa dan rencana relokasi dermaga peti kemas untuk menurunkan biaya logistik pulau Bangka yang selama ini terhambat pasang surut.",
+    metricLabel: "Efisiensi Biaya Logistik",
+    metricValue: "28%",
+    subMetric: "Penurunan Turnaround Time Kapal",
+    disciplines: ["Teknik Kelautan", "Teknik Sipil Transportasi", "Geodesi"],
     recommendations: [
-      "Pemasangan groin dan jetty pemandu arus muara untuk mencegah sedimentasi berulang",
-      "Pengerukan berkala alur pelayaran dengan kapal keruk hidraulik terukur",
-      "Rekomendasi relokasi terminal curah ke pelabuhan laut dalam Tanjung Gunung",
+      "Pengerukan periodik berbasis simulasi hidrodinamika arus muara",
+      "Kajian opsi pelabuhan laut dalam di Tanjung Gunung / Sadai",
+      "Integrasi jalur darat angkutan barang lingkar perkotaan",
     ],
-    disciplines: ["Teknik Kelautan", "Teknik Sipil Transportasi", "Hidrografi", "Teknik Logistik"],
     docUrl: "/documents/surat-keterangan-organisasi-pii-pkp.pdf",
+    image: "/partners/pelindo.png",
+    icon: Anchor,
   },
   {
     id: "drainase-perkotaan",
-    category: "Resiliensi Bencana & Tata Kota",
-    title: "Masterplan Drainase Kota & Retensi Pasang Surut",
-    lead: "Audit keteknikan tata air permukaan Pangkalpinang untuk memitigasi banjir tahunan akibat kombinasi curah hujan ekstrem dan pasang air laut (rob) di DAS Rangkui dan Pedindang.",
-    metricLabel: "Area Terproteksi",
-    metricValue: "1.200 Ha",
-    subMetric: "Kawasan pemukiman dan sentra perdagangan Pasar Pagi aman banjir",
-    icon: Waves,
-    image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1200&q=80",
+    category: "Tata Air & Ketahanan Iklim",
+    title: "Masterplan Pengendalian Banjir Kota Pangkalpinang",
+    lead:
+      "Perancangan sistem polder, kolam retensi, dan restorasi sempadan Sungai Rangkui untuk melindungi pusat niaga dan permukiman warga dari banjir rob dan hujan ekstrem.",
+    metricLabel: "Reduksi Luas Genangan",
+    metricValue: "72%",
+    subMetric: "Periode Ulang Debit 25 Tahunan",
+    disciplines: ["Teknik Pengairan", "Planologi (PWK)", "Teknik Lingkungan"],
     recommendations: [
-      "Pembangunan kolam retensi multifungsi terintegrasi ruang terbuka hijau",
-      "Pemasangan pintu air otomatis berpenggerak solar panel dengan sensor telemetri",
-      "Normalisasi penampang basah sungai tanpa mengorbankan ekosistem mangrove",
+      "Pembangunan pintu pasang-surut otomatis di muara Sungai Rangkui",
+      "Revitalisasi kolong retensi sebagai ruang terbuka hijau publik",
+      "Penetapan garis sempadan tegas bebas okupasi bangunan liar",
     ],
-    disciplines: ["Teknik Sumber Daya Air", "Perencanaan Wilayah & Kota", "Teknik Geodesi"],
     docUrl: "/documents/surat-keterangan-organisasi-pii-pkp.pdf",
+    image: "/partners/jaya-konstruksi.png",
+    icon: Droplets,
   },
 ];
 
@@ -103,29 +114,28 @@ export function BannerHighlight() {
   return (
     <section
       id="inisiatif"
-      className="relative bg-slate-900 py-24 text-white overflow-hidden"
+      className="relative bg-slate-950 py-24 text-white overflow-hidden border-t border-b border-slate-800"
       aria-labelledby="inisiatif-heading"
     >
-      {/* Precision Blueprint Grid Overlay */}
+      {/* Precision Blueprint Grid Lines */}
       <div className="pointer-events-none absolute inset-0 opacity-10 bg-[linear-gradient(to_right,#39A0F5_1px,transparent_1px),linear-gradient(to_bottom,#39A0F5_1px,transparent_1px)] bg-[size:40px_40px]" />
 
       <div className="relative container">
-        {/* Section Header */}
+        {/* Section Header (Clean, no kicker above heading) */}
         <div className="flex flex-col gap-4 border-b border-slate-800 pb-10 md:flex-row md:items-end md:justify-between">
           <div>
-            <div className="inline-flex items-center gap-2 rounded-md border border-cyan-500/30 bg-cyan-950/40 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-400">
-              <Compass className="h-3.5 w-3.5 text-cyan-400" />
-              Kajian Keteknikan Strategis Daerah
-            </div>
             <h2
               id="inisiatif-heading"
-              className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl"
+              className="text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl"
             >
               Blueprint Rekayasa Bangka Belitung 2045
             </h2>
+            <p className="mt-2 text-base font-semibold text-cyan-400">
+              Kajian keteknikan strategis, hilirisasi mineral, dan transisi energi kepulauan.
+            </p>
           </div>
-          <p className="max-w-xl text-base leading-relaxed text-slate-400">
-            PII Pangkalpinang memimpin forum kajian independen untuk memecahkan persoalan
+          <p className="max-w-xl text-base leading-relaxed text-slate-300">
+            PII Cabang Pangkalpinang memimpin forum kajian independen untuk memecahkan persoalan
             struktural daerah melalui rekayasa teknologi, hilirisasi mineral, dan ketahanan iklim.
           </p>
         </div>
@@ -144,8 +154,8 @@ export function BannerHighlight() {
                 onClick={() => setActiveId(item.id)}
                 className={`flex items-center gap-2.5 rounded-xl border px-4 py-3 text-xs font-semibold tracking-wide transition-all ${
                   isSelected
-                    ? "border-cyan-400 bg-cyan-950/80 text-cyan-300 shadow-lg shadow-cyan-950/50"
-                    : "border-slate-800 bg-slate-800/40 text-slate-400 hover:border-slate-700 hover:text-white"
+                    ? "border-cyan-400 bg-cyan-950 text-cyan-300 shadow-sm"
+                    : "border-slate-800 bg-slate-800/40 text-slate-300 hover:border-slate-700 hover:text-white"
                 }`}
               >
                 <ItemIcon className="h-4 w-4" />
@@ -155,8 +165,8 @@ export function BannerHighlight() {
           })}
         </div>
 
-        {/* Dynamic Interactive Detail Card */}
-        <div className="mt-8 rounded-2xl border border-slate-800 bg-slate-800/50 p-6 md:p-10 backdrop-blur-sm">
+        {/* Dynamic Detail Panel (Flattened layout, no nested cards) */}
+        <div className="mt-8 rounded-2xl border border-slate-800 bg-slate-900/60 p-6 md:p-10 backdrop-blur-sm">
           <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:items-center">
             {/* Left Content */}
             <div className="space-y-6">
@@ -165,12 +175,12 @@ export function BannerHighlight() {
                   <IconComponent className="h-5 w-5" />
                 </span>
                 <div>
-                  <span className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-400">
-                    {activeInitiative.category}
-                  </span>
                   <h3 className="text-2xl font-bold text-white sm:text-3xl">
                     {activeInitiative.title}
                   </h3>
+                  <p className="text-xs font-semibold uppercase tracking-wider text-cyan-400 mt-1">
+                    {activeInitiative.category}
+                  </p>
                 </div>
               </div>
 
@@ -178,27 +188,27 @@ export function BannerHighlight() {
                 {activeInitiative.lead}
               </p>
 
-              {/* Metric Callout */}
-              <div className="rounded-xl border border-slate-700/60 bg-slate-900/80 p-5">
-                <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">
+              {/* Metric Callout (Clean hairline CAD border, not a nested box) */}
+              <div className="border-l-2 border-cyan-400 pl-5 py-2">
+                <span className="text-xs font-semibold uppercase tracking-wider text-slate-300">
                   {activeInitiative.metricLabel}
                 </span>
                 <div className="mt-1 flex items-baseline gap-3">
-                  <span className="text-3xl font-extrabold text-cyan-400">
+                  <span className="text-3xl font-extrabold text-cyan-400 tabular-nums">
                     {activeInitiative.metricValue}
                   </span>
-                  <span className="text-xs text-slate-400">{activeInitiative.subMetric}</span>
+                  <span className="text-xs text-slate-300">{activeInitiative.subMetric}</span>
                 </div>
               </div>
 
               {/* Recommendations List */}
               <div className="space-y-3">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-slate-300">
                   Pokok Rekomendasi Tim Ahli PII:
                 </h4>
                 <ul className="space-y-2">
                   {activeInitiative.recommendations.map((rec) => (
-                    <li key={rec} className="flex items-start gap-2.5 text-sm text-slate-300">
+                    <li key={rec} className="flex items-start gap-2.5 text-sm text-slate-200">
                       <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-400" />
                       <span>{rec}</span>
                     </li>
@@ -208,14 +218,14 @@ export function BannerHighlight() {
 
               {/* Engineering Disciplines Involved */}
               <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-slate-300">
                   Disiplin Kejuruan Terlibat:
                 </h4>
                 <div className="mt-2 flex flex-wrap gap-2">
                   {activeInitiative.disciplines.map((disc) => (
                     <span
                       key={disc}
-                      className="rounded-md border border-slate-700 bg-slate-900/60 px-2.5 py-1 text-xs font-medium text-slate-300"
+                      className="rounded-md border border-slate-700 bg-slate-900/60 px-2.5 py-1 text-xs font-medium text-slate-200"
                     >
                       {disc}
                     </span>
@@ -256,7 +266,7 @@ export function BannerHighlight() {
                 className="object-cover transition-transform duration-500 hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
-              <div className="absolute bottom-4 left-4 right-4 text-xs text-slate-300">
+              <div className="absolute bottom-4 left-4 right-4 text-xs text-slate-200">
                 <span className="font-semibold text-white">Studi Lapangan PII PKP</span> — Wilayah
                 Strategis Bangka Belitung
               </div>
