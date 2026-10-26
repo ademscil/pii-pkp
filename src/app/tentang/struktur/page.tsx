@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import { aboutContent } from "@/data/site-content";
 
 const { board } = aboutContent;
@@ -40,7 +40,7 @@ export default function StrukturPage() {
                     {person.name || person.role}
                   </p>
                   {person.role && person.name && (
-                    <p className="text-xs uppercase tracking-[0.3em] text-brand-slate/60">
+                    <p className="text-xs uppercase tracking-[0.3em] text-slate-600 font-medium">
                       {person.role}
                     </p>
                   )}

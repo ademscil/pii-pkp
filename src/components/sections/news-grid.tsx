@@ -1,70 +1,181 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { Newspaper, Calendar, Eye, ArrowRight, Filter } from "lucide-react";
 import { news } from "@/data/site-content";
 
+const categories = ["Semua Warta", "Kajian Hilirisasi", "Regulasi & Profesi", "Inovasi Maritim"];
+
 export function NewsGrid() {
+  const [selectedCategory, setSelectedCategory] = useState("Semua Warta");
+
+  const filteredNews = news.filter((item) => {
+    if (selectedCategory === "Semua Warta") return true;
+    if (selectedCategory === "Kajian Hilirisasi") {
+      return item.category.toLowerCase().includes("hilirisasi") || item.title.toLowerCase().includes("timah");
+    }
+    if (selectedCategory === "Regulasi & Profesi") {
+      return item.category.toLowerCase().includes("regulasi") || item.category.toLowerCase().includes("profesi");
+    }
+    if (selectedCategory === "Inovasi Maritim") {
+      return item.category.toLowerCase().includes("maritim") || item.category.toLowerCase().includes("pelabuhan");
+    }
+    return true;
+  });
+
+  const featured = filteredNews[0] || news[0];
+  const sideArticles = filteredNews.slice(1);
+
   return (
-    <section id="berita" aria-labelledby="berita-heading">
+    <section
+      id="berita"
+      className="bg-white py-24 border-b border-slate-200"
+      aria-labelledby="berita-heading"
+    >
       <div className="container space-y-10">
-        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+        {/* Header */}
+        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between border-b border-slate-200 pb-8">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.35em] text-brand-blue/80">
-              Berita Terbaru
-            </p>
+            <div className="inline-flex items-center gap-2 rounded-md border border-brand-navy/20 bg-brand-navy/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-brand-navy">
+              <Newspaper className="h-3.5 w-3.5 text-brand-navy" />
+              Warta & Kajian Rekayasa
+            </div>
             <h2
               id="berita-heading"
-              className="mt-3 text-3xl font-semibold text-brand-midnight sm:text-4xl"
+              className="mt-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl"
             >
-              Kabar terkini ekosistem keteknikan Pangkalpinang
+              Kabar Keteknikan Bangka Belitung
             </h2>
           </div>
-          <Link
-            href="#"
-            className="text-sm font-semibold text-brand-blue transition hover:text-brand-midnight"
-          >
-            Berita Lainnya ?
-          </Link>
+          <p className="max-w-xl text-base leading-relaxed text-slate-600">
+            Publikasi resmi hasil survei teknis, opini insinyur cabang, regulasi praktik profesi,
+            dan dinamika ekosistem hilirisasi di Kepulauan Bangka Belitung.
+          </p>
         </div>
 
-        <div className="grid gap-6 lg:grid-cols-3">
-          {news.map((item) => (
-            <article
-              key={item.id}
-              className="overflow-hidden rounded-[28px] border border-brand-fog bg-white shadow-card transition hover:-translate-y-1"
-            >
-              <div className="relative h-56">
+        {/* Category Pills */}
+        <div className="flex flex-wrap items-center gap-2" role="group" aria-label="Filter kategori berita">
+          <div className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-slate-600 mr-2">
+            <Filter className="h-3.5 w-3.5" />
+            <span>Topik:</span>
+          </div>
+          {categories.map((cat) => {
+            const isSelected = cat === selectedCategory;
+            return (
+              <button
+                key={cat}
+                type="button"
+                onClick={() => setSelectedCategory(cat)}
+                className={`rounded-full px-4 py-2 text-xs font-bold transition-all ${
+                  isSelected
+                    ? "bg-brand-navy text-white shadow-sm"
+                    : "border border-slate-200 bg-slate-50 text-slate-600 hover:border-slate-300 hover:text-slate-900"
+                }`}
+              >
+                {cat}
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Editorial Layout: Lead Article + Side Columns */}
+        <div className="grid gap-8 lg:grid-cols-[1.3fr_1fr]">
+          {/* Featured Lead Article */}
+          <article className="group flex flex-col justify-between overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 shadow-sm transition hover:border-slate-300 hover:shadow-md">
+            <div>
+              <div className="relative aspect-[16/9] w-full overflow-hidden bg-slate-200">
                 <Image
-                  src={item.image}
-                  alt={item.title}
+                  src={featured.image}
+                  alt={featured.title}
                   fill
-                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 60vw"
+                  className="object-cover transition duration-300 group-hover:scale-105"
                 />
+                <span className="absolute top-4 left-4 rounded-md bg-brand-navy/90 px-3 py-1 text-xs font-bold uppercase tracking-wider text-white backdrop-blur-sm">
+                  {featured.category}
+                </span>
               </div>
-              <div className="flex flex-col gap-4 p-6">
-                <div className="flex flex-wrap items-center gap-3 text-xs font-semibold uppercase tracking-[0.25em] text-brand-slate/80">
-                  <span>{item.category}</span>
-                  <span className="h-1.5 w-1.5 rounded-full bg-brand-blue" />
-                  <span>{item.date}</span>
-                  {item.views != null && (
-                    <>
-                      <span className="h-1.5 w-1.5 rounded-full bg-brand-blue" />
-                      <span>{item.views} views</span>
-                    </>
+
+              <div className="p-6 md:p-8 space-y-4">
+                <div className="flex items-center gap-4 text-xs font-semibold text-slate-500">
+                  <span className="flex items-center gap-1">
+                    <Calendar className="h-3.5 w-3.5 text-brand-blue" />
+                    {featured.date}
+                  </span>
+                  {featured.views && (
+                    <span className="flex items-center gap-1">
+                      <Eye className="h-3.5 w-3.5 text-slate-400" />
+                      {featured.views} pembaca
+                    </span>
                   )}
                 </div>
-                <h3 className="text-xl font-semibold text-brand-midnight">
-                  {item.title}
+
+                <h3 className="text-2xl font-bold text-slate-900 group-hover:text-brand-blue transition-colors leading-snug">
+                  {featured.title}
                 </h3>
-                <p className="text-sm text-brand-slate">{item.excerpt}</p>
-                <Link
-                  href={item.link}
-                  className="mt-auto text-sm font-semibold text-brand-blue transition hover:text-brand-midnight"
-                >
-                  Baca Selengkapnya ?
-                </Link>
+
+                <p className="text-sm leading-relaxed text-slate-600">{featured.excerpt}</p>
               </div>
-            </article>
-          ))}
+            </div>
+
+            <div className="p-6 md:p-8 pt-0">
+              <Link
+                href={featured.link}
+                className="inline-flex items-center gap-2 rounded-xl bg-brand-navy px-5 py-2.5 text-xs font-bold text-white shadow-sm transition hover:bg-brand-blue"
+              >
+                <span>Baca Telaah Lengkap</span>
+                <ArrowRight className="h-3.5 w-3.5" />
+              </Link>
+            </div>
+          </article>
+
+          {/* Secondary Articles List */}
+          <div className="space-y-4">
+            {sideArticles.map((item) => (
+              <article
+                key={item.id}
+                className="group flex flex-col sm:flex-row gap-4 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm transition hover:border-slate-300 hover:shadow-md"
+              >
+                <div className="relative aspect-[16/10] sm:w-44 shrink-0 overflow-hidden rounded-xl bg-slate-100">
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    sizes="(max-width: 640px) 100vw, 180px"
+                    className="object-cover transition duration-300 group-hover:scale-105"
+                  />
+                </div>
+
+                <div className="flex flex-1 flex-col justify-between space-y-2">
+                  <div>
+                    <div className="flex items-center gap-2 text-[11px] font-semibold text-slate-500">
+                      <span className="text-brand-blue font-bold">{item.category}</span>
+                      <span>•</span>
+                      <span>{item.date}</span>
+                    </div>
+
+                    <h4 className="mt-1 text-sm font-bold text-slate-900 group-hover:text-brand-blue transition-colors line-clamp-2">
+                      {item.title}
+                    </h4>
+
+                    <p className="mt-1 text-xs text-slate-600 line-clamp-2 leading-relaxed">
+                      {item.excerpt}
+                    </p>
+                  </div>
+
+                  <Link
+                    href={item.link}
+                    className="inline-flex items-center gap-1 text-xs font-bold text-brand-blue hover:text-brand-navy pt-1"
+                  >
+                    <span>Baca</span>
+                    <ArrowRight className="h-3 w-3" />
+                  </Link>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -1,4 +1,4 @@
-﻿export type NavItem = {
+export type NavItem = {
   label: string;
   href: string;
   children?: {
@@ -323,7 +323,7 @@ export const bannerHighlight = {
   description:
     "PII Cabang Pangkalpinang mengajak ekosistem industri dan pemerintah daerah mempercepat transisi energi pesisir, menerapkan desain hijau di kawasan industri Sadai, serta menginkubasi startup keteknikan lokal.",
   ctaLabel: "Lihat Panduan Strategis",
-  ctaHref: "https://piipangkalpinang.or.id/netzero2045",
+  ctaHref: "https://piipkp.or.id/netzero2045",
   image:
     "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1400&q=80",
 };
@@ -585,19 +585,19 @@ export const documents = [
     title: "Pedoman Tata Kelola PII Pangkalpinang 2025",
     description:
       "Rujukan lengkap struktur organisasi, kode etik, dan prosedur sidang anggota cabang.",
-    href: "#",
+    href: "/documents/surat-keterangan-organisasi-pii-pkp.pdf",
   },
   {
     title: "Formulir Keanggotaan & SKK Area Babel",
     description:
       "Dokumen pendaftaran anggota baru berikut checklist berkas Rekognisi Pembelajaran Lampau.",
-    href: "#",
+    href: "/documents/surat-keterangan-organisasi-pii-pkp.pdf",
   },
   {
     title: "Blueprint Net-Zero Kawasan Industri Sadai",
     description:
       "Laporan teknis versi publik terkait roadmap energi bersih hasil kajian PII Pangkalpinang.",
-    href: "#",
+    href: "/documents/surat-keterangan-organisasi-pii-pkp.pdf",
   },
 ];
 

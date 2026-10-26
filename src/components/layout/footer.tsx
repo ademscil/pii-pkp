@@ -1,4 +1,4 @@
-﻿import Image from "next/image";
+import Image from "next/image";
 import Link from "next/link";
 import {
   Facebook,
@@ -34,13 +34,15 @@ export function Footer() {
             <Link
               href="#beranda"
               className="inline-flex items-center gap-3"
-              aria-label="Kembali ke beranda"
+              aria-label="Persatuan Insinyur Indonesia Cabang Pangkalpinang - Kembali ke beranda"
             >
               <Image
                 src="/logo-pii-black.png"
                 alt="Logo PII Pangkalpinang"
-                width={170}
-                height={44}
+                width={38}
+                height={54}
+                style={{ aspectRatio: "376 / 536" }}
+                className="h-12 w-auto object-contain"
               />
               <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-slate">
                 Cabang Pangkalpinang
@@ -60,7 +62,7 @@ export function Footer() {
             </div>
             <div className="flex flex-wrap gap-3 text-sm">
               <a
-                href={`tel:${footerContent.phone}`}
+                href={`tel:${phonePlain}`}
                 className="rounded-full border border-brand-fog px-4 py-2 text-brand-navy transition hover:border-brand-blue hover:text-brand-blue"
               >
                 WhatsApp {footerContent.phone}

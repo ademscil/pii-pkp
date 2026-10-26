@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/header";
@@ -11,7 +11,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://piipangkalpinang.or.id"),
+  metadataBase: new URL("https://piipkp.or.id"),
   title: {
     default: "PII PKP",
     template: "%s | PII PKP",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "id_ID",
-    url: "https://piipangkalpinang.or.id",
+    url: "https://piipkp.or.id",
     title: "PII PKP",
     description:
       "Portal resmi PII Pangkalpinang dengan berita, agenda, layanan, dan jejaring insinyur Bangka Belitung.",
@@ -68,8 +68,14 @@ export default function RootLayout({
   return (
     <html lang="id" className="scroll-smooth">
       <body className={`${inter.variable} bg-[#f6f8fc] font-inter text-brand-midnight`}>
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-full focus:bg-brand-blue focus:px-4 focus:py-2 focus:text-white"
+        >
+          Lewati ke konten utama
+        </a>
         <Header />
-        <main className="flex min-h-screen flex-col pt-[var(--header-height)]">
+        <main id="main-content" tabIndex={-1} className="flex min-h-screen flex-col pt-[var(--header-height)] outline-none">
           {children}
         </main>
         <Footer />

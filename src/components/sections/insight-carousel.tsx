@@ -85,11 +85,12 @@ export function InsightCarousel({
                   src={item.image}
                   alt={item.title}
                   fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className="object-cover"
                 />
               </div>
               <div className="flex flex-1 flex-col gap-4 p-6">
-                <div className="text-xs font-semibold uppercase tracking-[0.3em] text-brand-slate/70">
+                <div className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-600">
                   {item.date}
                 </div>
                 <h3 className="text-xl font-semibold text-brand-midnight">

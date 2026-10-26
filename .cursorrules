@@ -1,0 +1,14 @@
+# .cursorrules — PII PKP
+# Governed by Baneeishaque/AI-Agent-Rules and Leonxlnx/taste-skill anti-slop guidelines
+
+# Technical Standards
+- Framework: Next.js 14 App Router (React 18, TypeScript 5, Tailwind CSS 3)
+- Styling: Tailwind CSS with crisp engineering palettes, hairline blueprint grids, and strict WCAG AA contrast (>= 4.5:1).
+- Images: All Next.js <Image> components must have explicit dimensions or aspect ratio styles to avoid DevTools CLS warnings.
+- Mandatory: Zero console errors, zero console warnings, zero DevTools layout shift issues.
+- Preserve: /logo-pii-black.png is the official chartered institute logo and must remain untouched.
+
+# Anti-Slop Directive
+- Never produce generic three-card feature rows with purple glow gradients.
+- Build rich, stateful, interactive widgets (e.g. competency calculators, blueprint selectors, filterable agenda grids).
+- Always verify with `npx tsc --noEmit` and `npm run build` before claiming completion.

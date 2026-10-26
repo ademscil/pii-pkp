@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { aboutContent } from "@/data/site-content";
 
@@ -27,7 +27,7 @@ export default function SejarahPage() {
             href="/"
             className="inline-flex w-fit items-center rounded-full border border-white/40 px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-1 hover:bg-white/10"
           >
-            ? Kembali ke beranda
+            ← Kembali ke beranda
           </Link>
         </div>
       </section>
@@ -55,7 +55,7 @@ export default function SejarahPage() {
                 <h3 className="mt-3 text-lg font-semibold text-brand-midnight">
                   {item.title}
                 </h3>
-                <p className="mt-2 text-sm text-brand-slate/90">
+                <p className="mt-2 text-sm text-slate-700">
                   {item.description}
                 </p>
               </div>

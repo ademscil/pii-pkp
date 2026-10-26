@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import { aboutContent } from "@/data/site-content";
 
 const { vision } = aboutContent;
@@ -31,7 +31,7 @@ export default function VisiMisiPage() {
               key={mission}
               className="rounded-[28px] border border-brand-fog bg-white p-6 shadow-card"
             >
-              <span className="text-xs font-semibold uppercase tracking-[0.35em] text-brand-blue/70">
+              <span className="text-xs font-semibold uppercase tracking-[0.35em] text-brand-blue">
                 Misi {idx + 1}
               </span>
               <p className="mt-3 text-base text-brand-midnight/90">{mission}</p>

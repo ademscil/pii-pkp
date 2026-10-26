@@ -1,121 +1,156 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useKeenSlider } from "keen-slider/react";
+import { Calendar, MapPin, Award, ExternalLink, Filter } from "lucide-react";
 import { agenda } from "@/data/site-content";
-import "keen-slider/keen-slider.min.css";
+
+const categories = ["Semua", "Sidang Profesi", "Workshop Teknis", "Kajian Daerah"];
 
 export function AgendaSlider() {
-  const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
-    loop: true,
-    mode: "snap",
-    slides: {
-      perView: 3,
-      spacing: 24,
-    },
-    breakpoints: {
-      "(max-width: 1024px)": {
-        slides: {
-          perView: 2,
-          spacing: 20,
-        },
-      },
-      "(max-width: 640px)": {
-        slides: {
-          perView: 1.1,
-          spacing: 16,
-        },
-      },
-    },
+  const [selectedCategory, setSelectedCategory] = useState<string>("Semua");
+
+  const filteredAgenda = agenda.filter((item) => {
+    if (selectedCategory === "Semua") return true;
+    if (selectedCategory === "Sidang Profesi") {
+      return item.category.toLowerCase().includes("sidang") || item.category.toLowerCase().includes("sertifikasi");
+    }
+    if (selectedCategory === "Workshop Teknis") {
+      return item.category.toLowerCase().includes("workshop") || item.category.toLowerCase().includes("pelatihan");
+    }
+    if (selectedCategory === "Kajian Daerah") {
+      return item.category.toLowerCase().includes("kajian") || item.category.toLowerCase().includes("focus");
+    }
+    return true;
   });
 
   return (
     <section
       id="agenda"
-      className="section-spacing bg-white"
+      className="bg-white py-24 border-b border-slate-200"
       aria-labelledby="agenda-heading"
     >
       <div className="container space-y-10">
-        <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+        {/* Header */}
+        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between border-b border-slate-200 pb-8">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.35em] text-brand-blue/80">
-              Agenda PII
-            </p>
+            <div className="inline-flex items-center gap-2 rounded-md border border-brand-navy/20 bg-brand-navy/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-brand-navy">
+              <Calendar className="h-3.5 w-3.5 text-brand-navy" />
+              Kalender Agenda & CPD
+            </div>
             <h2
               id="agenda-heading"
-              className="mt-3 max-w-xl text-3xl font-semibold text-brand-midnight sm:text-4xl"
+              className="mt-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl"
             >
-              Kegiatan resmi PII Pangkalpinang semester ini
+              Agenda Resmi & Sidang Profesi
             </h2>
           </div>
-          <div className="flex flex-col items-start gap-2 text-sm text-brand-slate">
-            <span>
-              Agenda lengkap dan update harian kami bagikan melalui Instagram cabang.
-            </span>
+          <div className="max-w-md text-sm text-slate-600 space-y-2">
+            <p>
+              Seluruh agenda seminar dan pelatihan PII terakreditasi dengan perolehan Satuan Kredit
+              Pengembangan Keprofesian (SKPK) resmi untuk pemenuhan sertifikasi.
+            </p>
             <Link
               href="https://www.instagram.com/pii_pangkalpinang/"
-              className="inline-flex items-center text-sm font-semibold text-brand-blue transition hover:text-brand-midnight"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 font-semibold text-brand-blue hover:text-brand-navy"
             >
-              Buka Instagram PII Pangkalpinang ?
+              <span>Update Harian via Instagram Resmi</span>
+              <ExternalLink className="h-3.5 w-3.5" />
             </Link>
           </div>
         </div>
 
-        <div ref={sliderRef} className="keen-slider">
-          {agenda.map((item) => (
+        {/* Interactive Category Filter Pills */}
+        <div className="flex flex-wrap items-center gap-2" role="group" aria-label="Filter kategori agenda">
+          <div className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-slate-600 mr-2">
+            <Filter className="h-3.5 w-3.5" />
+            <span>Kategori:</span>
+          </div>
+          {categories.map((cat) => {
+            const isSelected = cat === selectedCategory;
+            return (
+              <button
+                key={cat}
+                type="button"
+                onClick={() => setSelectedCategory(cat)}
+                className={`rounded-full px-4 py-2 text-xs font-bold transition-all ${
+                  isSelected
+                    ? "bg-brand-navy text-white shadow-sm"
+                    : "border border-slate-200 bg-slate-50 text-slate-600 hover:border-slate-300 hover:text-slate-900"
+                }`}
+              >
+                {cat}
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Agenda Cards Grid */}
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {filteredAgenda.map((item, idx) => (
             <article
               key={item.id}
-              className="keen-slider__slide card flex flex-col overflow-hidden"
+              className="group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:border-slate-300 hover:shadow-md"
             >
-              <div className="relative h-56">
+              {/* Image Banner */}
+              <div className="relative aspect-[16/9] w-full overflow-hidden bg-slate-100">
                 <Image
                   src={item.image}
                   alt={item.title}
                   fill
-                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  className="object-cover transition duration-300 group-hover:scale-105"
                 />
-              </div>
-              <div className="flex flex-1 flex-col gap-3 p-6">
-                <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-brand-slate">
-                  <span>{item.category}</span>
-                  <span className="h-1.5 w-1.5 rounded-full bg-brand-blue" />
-                  <span>{item.mode}</span>
+                <div className="absolute top-3 left-3 flex gap-2">
+                  <span className="rounded-md bg-brand-navy/90 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider text-white backdrop-blur-sm">
+                    {item.category}
+                  </span>
+                  <span className="rounded-md bg-white/90 px-2 py-1 text-[11px] font-semibold text-slate-800 backdrop-blur-sm">
+                    {item.mode}
+                  </span>
                 </div>
-                <h3 className="text-xl font-semibold text-brand-midnight">
-                  {item.title}
-                </h3>
-                <p className="text-sm text-brand-slate">{item.date}</p>
-                <p className="text-sm font-medium text-brand-midnight/80">
-                  {item.location}
-                </p>
-                <Link
-                  href={item.link}
-                  className="mt-auto inline-flex items-center text-sm font-semibold text-brand-blue transition hover:text-brand-midnight"
-                >
-                  Detail agenda di Instagram ?
-                </Link>
+              </div>
+
+              {/* Content */}
+              <div className="flex flex-1 flex-col justify-between p-6">
+                <div className="space-y-3">
+                  <div className="flex items-center gap-2 text-xs font-semibold text-slate-500">
+                    <Calendar className="h-3.5 w-3.5 text-brand-blue" />
+                    <span>{item.date}</span>
+                  </div>
+
+                  <h3 className="text-lg font-bold text-slate-900 group-hover:text-brand-blue transition-colors">
+                    {item.title}
+                  </h3>
+
+                  <div className="flex items-start gap-2 text-xs text-slate-600">
+                    <MapPin className="h-3.5 w-3.5 text-slate-500 mt-0.5 shrink-0" />
+                    <span>{item.location}</span>
+                  </div>
+                </div>
+
+                <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+                  <div className="flex items-center gap-1.5 text-xs font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-md">
+                    <Award className="h-3.5 w-3.5" />
+                    <span>SKPK Terakreditasi</span>
+                  </div>
+
+                  <Link
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-xs font-bold text-brand-blue hover:text-brand-navy"
+                  >
+                    <span>RSVP / Info</span>
+                    <ExternalLink className="h-3 w-3" />
+                  </Link>
+                </div>
               </div>
             </article>
           ))}
-        </div>
-        <div className="mt-6 flex items-center justify-center gap-4">
-          <button
-            type="button"
-            className="rounded-full border border-brand-fog bg-white px-4 py-2 text-sm font-semibold text-brand-navy transition hover:border-brand-blue"
-            onClick={() => instanceRef.current?.prev()}
-            aria-label="Agenda sebelumnya"
-          >
-            Sebelumnya
-          </button>
-          <button
-            type="button"
-            className="rounded-full border border-brand-fog bg-white px-4 py-2 text-sm font-semibold text-brand-navy transition hover:border-brand-blue"
-            onClick={() => instanceRef.current?.next()}
-            aria-label="Agenda selanjutnya"
-          >
-            Selanjutnya
-          </button>
         </div>
       </div>
     </section>

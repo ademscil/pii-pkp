@@ -26,6 +26,19 @@ export function Header() {
     } else {
       document.body.style.overflow = "";
     }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileOpen]);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && mobileOpen) {
+        setMobileOpen(false);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
   }, [mobileOpen]);
 
   return (
@@ -45,7 +58,7 @@ export function Header() {
         <Link
           href="/"
           className="flex items-center gap-3"
-          aria-label="Beranda PII Pangkalpinang"
+
         >
           <Image
             src="/logo-pii-black.png"
@@ -54,6 +67,7 @@ export function Header() {
             height={536}
             priority
             className="h-14 w-auto"
+            style={{ aspectRatio: "376 / 536" }}
           />
           <div className="hidden sm:flex flex-col leading-tight">
             <span className="text-sm font-semibold text-brand-midnight">
@@ -117,6 +131,8 @@ export function Header() {
         <div className="hidden items-center gap-3 lg:flex">
           <Link
             href="https://updmember.pii.or.id/auth/register"
+            target="_blank"
+            rel="noopener noreferrer"
             className="rounded-full bg-brand-blue px-5 py-2 text-sm font-semibold text-white shadow-floating transition hover:-translate-y-0.5 hover:bg-brand-navy"
           >
             Gabung PII
@@ -155,6 +171,7 @@ export function Header() {
             width={376}
             height={536}
             className="h-16 w-auto"
+            style={{ aspectRatio: "376 / 536" }}
           />
           <button
             type="button"
@@ -220,6 +237,8 @@ export function Header() {
 
         <Link
           href="https://updmember.pii.or.id/auth/register"
+          target="_blank"
+          rel="noopener noreferrer"
           className="mt-8 block rounded-2xl bg-brand-blue px-5 py-3 text-center text-sm font-semibold text-white shadow-floating"
         >
           Gabung PII Sekarang

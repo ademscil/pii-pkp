@@ -1,4 +1,4 @@
-# PII Pangkalpinang – Next.js 14 (App Router)
+# PII Pangkalpinang - Next.js 14 (App Router)
 
 Situs resmi Persatuan Insinyur Indonesia Cabang Pangkalpinang yang meniru tata letak dan gaya UI situs PII pusat, namun seluruh konten sudah dipersonalisasi untuk Pangkalpinang/Bangka Belitung.
 
@@ -52,7 +52,7 @@ Cukup ubah teks/tautan/gambar di file tersebut atau ganti dengan fetch dari CMS 
 
 ## SEO
 - Metadata, Open Graph, dan Twitter Card disetel di `src/app/layout.tsx`.
-- Base URL diarahkan ke `https://piipangkalpinang.or.id`.
+- Base URL diarahkan ke `https://piipkp.or.id`.
 - Gambar hero & OG sudah disiapkan di `public/`.
 
 ## Catatan Teknis
