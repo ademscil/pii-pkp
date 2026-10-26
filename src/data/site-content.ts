@@ -332,41 +332,72 @@ export const news: ArticleItem[] = [
   {
     id: "news-01",
     title:
-      "PII Pangkalpinang Tandatangani MoU Rehabilitasi Dermaga Pelabuhan Pangkal Balam",
+      "Dukung Program Walikota, PII Pangkalpinang Matangkan Kajian Masterplan Drainase & Zero Run-Off Perkotaan",
     excerpt:
-      "Nota kesepahaman meliputi audit struktur dermaga, sistem monitoring korosi real-time, dan skema pelatihan operator lokal.",
-    date: "Kamis, 23 Oktober 2025",
-    category: "Pelabuhan",
-    views: 128,
+      "Merespons tantangan genangan dan tata kelola air perkotaan, PII Cabang Pangkalpinang menyiapkan telaah teknis sistem zero run-off dan polder terintegrasi untuk memperkuat masterplan drainase Pemerintah Kota Pangkalpinang.",
+    date: "Rabu, 21 Oktober 2026",
+    category: "Kajian Strategis",
+    views: 312,
+    author: "Tim Advokasi Teknik PII PKP",
     image:
-      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80",
-    link: "#",
+      "https://images.unsplash.com/photo-1541888946425-d0fbb186c5f7?auto=format&fit=crop&w=900&q=80",
+    link: "https://www.instagram.com/pii_pangkalpinang/",
   },
   {
     id: "news-02",
     title:
-      "Forum Insinyur Muda Babel Luncurkan Laboratorium Mini Energi Surya Terapung",
+      "Pengurus PII Pangkalpinang Ikuti Rakor Korwil Sumatera III Bahas Akselerasi STRI dan Sinergi Regional",
     excerpt:
-      "Prototype digelar di Kolong Kacang Pedang sebagai laboratorium terbuka untuk sekolah vokasi dan komunitas riset independen.",
-    date: "Kamis, 23 Oktober 2025",
-    category: "Energi",
-    views: 96,
+      "Rapat koordinasi bersama PP PII dan perwakilan Sumsel, Lampung, Babel, dan Bengkulu memfokuskan akselerasi penerbitan STRI, pendampingan FAIP, dan penguatan kelembagaan cabang keinsinyuran.",
+    date: "Senin, 12 Oktober 2026",
+    category: "Organisasi",
+    views: 245,
+    author: "Sekretariat Cabang",
     image:
-      "https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=900&q=80",
-    link: "#",
+      "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=900&q=80",
+    link: "https://www.instagram.com/pii_pangkalpinang/",
   },
   {
     id: "news-03",
     title:
-      "Workshop Keselamatan Tambang Timah Dorong Standar Baru Pengawasan Geoteknik",
+      "HUT PII ke-74: Insinyur Pangkalpinang Siap Kawal Re-Industrialisasi dan Hilirisasi Hijau Kepulauan",
     excerpt:
-      "PII bersama BUMN tambang menyusun panduan instrumentasi lereng untuk operasi darat dan laut.",
-    date: "Kamis, 23 Oktober 2025",
-    category: "Keselamatan",
-    views: 143,
+      "Mengangkat tema 'Wujudkan Re-Industrialisasi, Insinyur Indonesia Jadi Pilar Inovasi Dunia', PII Pangkalpinang menegaskan komitmen insinyur daerah mengawal transisi energi, nilai tambah mineral, dan ketahanan infrastruktur.",
+    date: "Jum'at, 5 Juni 2026",
+    category: "Organisasi",
+    views: 428,
+    author: "Humas PII Pangkalpinang",
     image:
-      "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=80",
-    link: "#",
+      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=80",
+    link: "https://www.instagram.com/pii_pangkalpinang/",
+  },
+  {
+    id: "news-04",
+    title:
+      "Klinik Asistensi Portofolio FAIP: Percepat Jalur Insinyur Profesional bagi Praktisi Teknik Pangkalpinang",
+    excerpt:
+      "Komite Sertifikasi Cabang membuka pendampingan berkala bagi sarjana teknik dan terapan untuk penuntasan pengisian SIMPOK PII, pemenuhan SKPK, dan perolehan gelar Insinyur Profesional Pratama/Madya/Utama.",
+    date: "Kamis, 10 September 2026",
+    category: "Sertifikasi",
+    views: 198,
+    author: "Komite Sertifikasi Cabang",
+    image:
+      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=900&q=80",
+    link: "https://www.pii.or.id/layanan/sertifikasi",
+  },
+  {
+    id: "news-05",
+    title:
+      "PII Bangka Belitung Dorong Sinergi Konsorsium Riset Terapan Bersama 12 Perguruan Tinggi Daerah",
+    excerpt:
+      "Membangun ekosistem keteknikan maritim dan teknologi pemrosesan timah, PII mengkonsolidasikan jejaring kemitraan akademik di Ruang Pasir Padi Kantor Gubernur guna mencetak talenta insinyur unggul.",
+    date: "Senin, 18 Agustus 2026",
+    category: "Ekosistem Industri",
+    views: 267,
+    author: "Bidang Riset & Kerjasama",
+    image:
+      "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=900&q=80",
+    link: "https://www.instagram.com/pii_pangkalpinang/",
   },
 ];
 
@@ -460,35 +491,62 @@ export const membershipBenefits: BenefitSlide[] = [
 export const agenda: AgendaItem[] = [
   {
     id: "agenda-01",
-    title: "Pengukuhan Pengurus PII Pangkalpinang 2024–2027",
-    date: "Sabtu, 19 Oktober 2024",
-    category: "Seremonial",
-    mode: "Offline",
-    location: "Aula Graha Rekayasa Pangkalpinang",
+    title:
+      "Webinar PKB: Infrastruktur Drainase Perkotaan Berkelanjutan & Integrasi Metode Zero Run-Off",
+    date: "Rabu, 21 Oktober 2026 (08.30 WIB)",
+    category: "Webinar",
+    mode: "Online",
+    location: "Zoom Cloud Meeting & Integrasi SIKI LPJK (FTSL ITB x Jakon Jabar)",
     image:
-      "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=900&q=80",
     link: "https://www.instagram.com/pii_pangkalpinang/",
   },
   {
     id: "agenda-02",
-    title: "Klinik Penyusunan RPL Program Profesi Insinyur",
-    date: "Senin, 28 Oktober 2024",
-    category: "Workshop",
-    mode: "Hybrid",
-    location: "Studio PII Pangkalpinang & Zoom",
+    title:
+      "Rapat Koordinasi Wilayah Korwil Sumatera III (Sumsel, Lampung, Babel, Bengkulu)",
+    date: "Senin, 12 Oktober 2026 (15.00 WIB)",
+    category: "Musyawarah",
+    mode: "Online",
+    location: "Zoom Meeting ID: 840 3458 2089 (Pengurus Pusat PII)",
     image:
-      "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=900&q=80",
     link: "https://www.instagram.com/pii_pangkalpinang/",
   },
   {
     id: "agenda-03",
-    title: "Roadshow Hilirisasi Timah Berkelanjutan",
-    date: "Jumat, 8 November 2024",
-    category: "Diskusi",
-    mode: "Offline",
-    location: "Hotel Soll Marina Pangkalpinang",
+    title:
+      "Syukuran Peringatan HUT PII ke-74: Re-Industrialisasi Insinyur Indonesia Pilar Inovasi Dunia",
+    date: "Jum'at, 5 Juni 2026 (08.30 WIB)",
+    category: "Sidang Profesi",
+    mode: "Online",
+    location: "Zoom Meeting ID: 832 8627 4437 (Passcode: HUT.PII74)",
     image:
-      "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=900&q=80",
+    link: "https://www.instagram.com/pii_pangkalpinang/",
+  },
+  {
+    id: "agenda-04",
+    title:
+      "Klinik Bimbingan Portofolio FAIP & Sertifikasi Insinyur Profesional (IPP/IPM/IPU)",
+    date: "Sabtu, 14 November 2026 (09.00 WIB)",
+    category: "Pelatihan",
+    mode: "Hybrid",
+    location: "Sekretariat PII Cabang Pangkalpinang & Zoom Cloud Meeting",
+    image:
+      "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=900&q=80",
+    link: "https://www.pii.or.id/layanan/sertifikasi",
+  },
+  {
+    id: "agenda-05",
+    title:
+      "Focus Group Discussion: Mitigasi Genangan & Penataan Koridor Sungai Perkotaan",
+    date: "Kamis, 26 November 2026 (09.00 WIB)",
+    category: "Musyawarah",
+    mode: "Offline",
+    location: "Aula Bappeda Kota Pangkalpinang (Kolaborasi PII PKP x Pemkot)",
+    image:
+      "https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=900&q=80",
     link: "https://www.instagram.com/pii_pangkalpinang/",
   },
 ];

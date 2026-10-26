@@ -16,8 +16,13 @@ export function NewsGrid() {
       ? news
       : news.filter((item) => item.category === selectedCategory);
 
+  const isAll = selectedCategory === "Semua";
   const featured = filteredNews[0] || news[0];
-  const sideArticles = filteredNews.slice(1, 4);
+  const sideArticles = isAll
+    ? filteredNews.slice(1)
+    : filteredNews.length > 1
+      ? filteredNews.slice(1)
+      : news.filter((item) => item.id !== featured.id).slice(0, 3);
 
   return (
     <section
@@ -123,6 +128,11 @@ export function NewsGrid() {
 
           {/* Secondary Articles List */}
           <div className="space-y-4">
+            {!isAll && filteredNews.length === 1 && (
+              <div className="text-xs font-bold uppercase tracking-wider text-slate-500 pb-2 border-b border-slate-100">
+                Warta Keteknikan Terkait
+              </div>
+            )}
             {sideArticles.map((item) => (
               <article
                 key={item.id}
